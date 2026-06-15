@@ -1,4 +1,4 @@
-# 📘 Lecture 06: Conditional Statements in Python
+# 📘 Lecture 07: Conditional Statements in Python
 
 Welcome to the Python Summer Camp Class 07!
 
@@ -31,6 +31,8 @@ Conditional statements are one of the most important concepts in programming bec
 - Difference Between `if`, `elif`, and `else`
 - Using `True` and `False` in Conditions
 - Indentation in Python
+- Multiple `if` Statements
+- Difference Between Multiple `if` and `if elif else`
 - Using Logical Operators with Conditions
 - `and` Operator
 - `or` Operator
@@ -59,10 +61,10 @@ If the condition is `False`, Python skips the code.
 # 📙 Syntax of Conditional Statements
 
 ```python
-if condition:
+if (condition):
     code
 
-elif condition:
+elif (condition):
     code
 
 else:
@@ -95,19 +97,19 @@ Execution flow:
             Start
                │
                ▼
-        Is if condition True?
-             /      \
-           Yes       No
-           /          \
-          ▼            ▼
-    Run if block    Check elif
+      Is if condition True?
+            /       \
+          Yes        No
+          /           \
+         ▼             ▼
+   Run if block    Check elif
                          │
-             Is elif condition True?
-                    /       \
-                  Yes        No
-                  /           \
-                 ▼             ▼
-         Run elif block    Run else block
+            Is elif condition True?
+                   /        \
+                 Yes         No
+                 /            \
+                ▼              ▼
+       Run elif block    Run else block
 ```
 
 ---
@@ -123,7 +125,7 @@ If the condition is `True`, the code inside the `if` block runs.
 ## Syntax of if Statement
 
 ```python
-if condition:
+if (condition):
     code
 ```
 
@@ -134,7 +136,7 @@ if condition:
 ```python
 light = "red"
 
-if light == "red":
+if (light == "red"):
     print("Stop")
 ```
 
@@ -151,7 +153,7 @@ Stop
 Python checks:
 
 ```python
-light == "red"
+(light == "red")
 ```
 
 Condition result:
@@ -173,7 +175,7 @@ print("Stop")
 ```python
 light = "green"
 
-if light == "red":
+if (light == "red"):
     print("Stop")
 ```
 
@@ -197,7 +199,7 @@ so Python skipped the if block.
 We can also directly write:
 
 ```python
-if True:
+if (True):
 ```
 
 This means the condition is always True.
@@ -207,7 +209,7 @@ This means the condition is always True.
 ## Example
 
 ```python
-if True:
+if (True):
     print("Python Class")
 ```
 
@@ -222,7 +224,7 @@ Python Class
 # 📗 Using False in if Statement
 
 ```python
-if False:
+if (False):
     print("Hello")
 ```
 
@@ -255,10 +257,10 @@ else if
 ## Syntax of elif
 
 ```python
-if condition:
+if (condition):
     code
 
-elif condition:
+elif (condition):
     code
 ```
 
@@ -269,10 +271,10 @@ elif condition:
 ```python
 light = "yellow"
 
-if light == "red":
+if (light == "red"):
     print("Stop")
 
-elif light == "yellow":
+elif (light == "yellow"):
     print("Ready")
 ```
 
@@ -289,7 +291,7 @@ Ready
 Python first checks:
 
 ```python
-light == "red"
+(light == "red")
 ```
 
 Result:
@@ -301,7 +303,7 @@ False
 Then Python moves to:
 
 ```python
-elif light == "yellow"
+(light == "yellow")
 ```
 
 Result:
@@ -333,13 +335,13 @@ print("Ready")
 ```python
 light = "yellow"
 
-if light == "red":
+if (light == "red"):
     print("Stop")
 
-elif light == "yellow":
+elif (light == "yellow"):
     print("Ready")
 
-elif light == "green":
+elif (light == "green"):
     print("Go")
 
 else:
@@ -363,7 +365,7 @@ The `else` statement runs when all conditions become False.
 ## Syntax of else
 
 ```python
-if condition:
+if (condition):
     code
 
 else:
@@ -377,13 +379,13 @@ else:
 ```python
 light = "blue"
 
-if light == "red":
+if (light == "red"):
     print("Stop")
 
-elif light == "yellow":
+elif (light == "yellow"):
     print("Ready")
 
-elif light == "green":
+elif (light == "green"):
     print("Go")
 
 else:
@@ -403,7 +405,7 @@ Invalid Traffic Light Color
 Python checks:
 
 ```python
-light == "red"
+(light == "red")
 ```
 
 Result:
@@ -415,7 +417,7 @@ False
 Then:
 
 ```python
-light == "yellow"
+(light == "yellow")
 ```
 
 Result:
@@ -427,7 +429,7 @@ False
 Then:
 
 ```python
-light == "green"
+(light == "green")
 ```
 
 Result:
@@ -493,7 +495,7 @@ Spaces before code
 ## Correct Example
 
 ```python
-if True:
+if (True):
     print("Hello")
 ```
 
@@ -502,7 +504,7 @@ if True:
 ## Wrong Example
 
 ```python
-if True:
+if (True):
 print("Hello")
 ```
 
@@ -526,13 +528,139 @@ Without proper indentation, Python cannot understand the code structure.
 
 ---
 
-# 📗 Using Logical Operators with Conditions
+# 📗 Multiple if Statements
+
+We can also write multiple separate `if` statements.
+
+In this case:
+
+```text
+Every if condition checks independently
+```
+
+---
+
+## Example
+
+```python
+marks = 95
+
+if (marks >= 50):
+    print("Pass")
+
+if (marks >= 80):
+    print("Grade A")
+
+if (marks >= 90):
+    print("Excellent")
+```
+
+Output:
+
+```python
+Pass
+Grade A
+Excellent
+```
+
+---
+
+# 📘 Explanation
+
+All conditions were True.
+
+So all `if` statements ran separately.
+
+---
+
+# 📙 Flow of Multiple if Statements
+
+```text
+if 1 → check
+if 2 → check
+if 3 → check
+```
+
+Every condition runs independently.
+
+---
+
+# 📕 Difference Between Multiple if and if elif else
+
+| Multiple if | if elif else |
+|---|---|
+| All conditions check | Stops after first True condition |
+| Multiple blocks can run | Only one block runs |
+| Independent conditions | Connected conditions |
+
+---
+
+# 📒 Example of if elif else
+
+```python
+marks = 95
+
+if (marks >= 90):
+    print("Excellent")
+
+elif (marks >= 80):
+    print("Grade A")
+
+elif (marks >= 50):
+    print("Pass")
+```
+
+Output:
+
+```python
+Excellent
+```
+
+---
+
+# 📗 Explanation
+
+Python found:
+
+```python
+(marks >= 90)
+```
+
+True.
+
+So Python stopped checking further conditions.
+
+---
+
+# 📘 Diagram of Multiple if vs if elif else
+
+## Multiple if
+
+```text
+Condition 1 → Run
+Condition 2 → Run
+Condition 3 → Run
+```
+
+---
+
+## if elif else
+
+```text
+Condition 1 → True
+        ↓
+Stop Checking Further Conditions
+```
+
+---
+
+# 📙 Using Logical Operators with Conditions
 
 Logical operators help us combine multiple conditions.
 
 ---
 
-# 📘 Using and Operator
+# 📗 Using and Operator
 
 The `and` operator returns True only when:
 
@@ -548,7 +676,7 @@ Both conditions are True
 marks = 85
 attendance = 90
 
-if marks >= 80 and attendance >= 75:
+if ((marks >= 80) and (attendance >= 75)):
     print("Pass")
 ```
 
@@ -560,18 +688,18 @@ Pass
 
 ---
 
-# 📙 Explanation
+# 📘 Explanation
 
 Python checks:
 
 ```python
-marks >= 80
+(marks >= 80)
 ```
 
 and
 
 ```python
-attendance >= 75
+(attendance >= 75)
 ```
 
 Since both are True:
@@ -599,7 +727,7 @@ At least one condition is True
 ```python
 day = "Sunday"
 
-if day == "Sunday" or day == "Saturday":
+if ((day == "Sunday") or (day == "Saturday")):
     print("Weekend")
 ```
 
@@ -616,7 +744,7 @@ Weekend
 Python checks:
 
 ```python
-day == "Sunday"
+(day == "Sunday")
 ```
 
 Result:
@@ -640,16 +768,16 @@ returns True.
 ```python
 marks = 92
 
-if marks >= 90:
+if (marks >= 90):
     print("Grade A+")
 
-elif marks >= 80:
+elif (marks >= 80):
     print("Grade A")
 
-elif marks >= 70:
+elif (marks >= 70):
     print("Grade B")
 
-elif marks >= 60:
+elif (marks >= 60):
     print("Grade C")
 
 else:
@@ -677,9 +805,9 @@ A condition inside another condition
 ## Syntax of Nested Conditions
 
 ```python
-if condition:
+if (condition):
 
-    if condition:
+    if (condition):
         code
 ```
 
@@ -691,9 +819,9 @@ if condition:
 age = 20
 has_id = True
 
-if age >= 18:
+if (age >= 18):
 
-    if has_id == True:
+    if (has_id == True):
         print("Entry Allowed")
 
     else:
@@ -716,7 +844,7 @@ Entry Allowed
 Python first checks:
 
 ```python
-age >= 18
+(age >= 18)
 ```
 
 If this becomes True:
@@ -724,7 +852,7 @@ If this becomes True:
 then Python checks the inner condition:
 
 ```python
-has_id == True
+(has_id == True)
 ```
 
 If both conditions are True:
@@ -737,7 +865,32 @@ prints.
 
 ---
 
-# 📘 Final Flow of Conditional Statements
+# 📘 Nested Condition Flow Diagram
+
+```text
+Check Age
+    │
+    ▼
+Age >= 18 ?
+   /    \
+ Yes     No
+  │       │
+  ▼       ▼
+Check ID  Under Age
+  │
+  ▼
+ID True?
+ /    \
+Yes    No
+ │      │
+ ▼      ▼
+Entry   ID Required
+Allowed
+```
+
+---
+
+# 📙 Final Flow of Conditional Statements
 
 ```text
 if
