@@ -343,9 +343,6 @@ elif (light == "yellow"):
 
 elif (light == "green"):
     print("Go")
-
-else:
-    print("Invalid Traffic Light Color")
 ```
 
 Output:
@@ -527,112 +524,263 @@ Which code belongs inside the condition
 Without proper indentation, Python cannot understand the code structure.
 
 ---
+# 📕 Multiple if vs if-elif-else
 
-# 📗 Multiple if Statements
+This examples shows the difference between **multiple separate if statements** and **if-elif-else**, using a Wrong Example → Correct Fix → Correct Use of if structure.
 
-We can also write multiple separate `if` statements.
+---
 
-In this case:
+# 📗 Step 1: Wrong Use of Multiple if Statements
+
+We will use an **Ice Cream Shop** 🍦 example, based on how much pocket money a kid has.
 
 ```text
 Every if condition checks independently
 ```
 
----
-
-## Example
+## Example (Wrong Way)
 
 ```python
-marks = 95
+pocket_money = 100
 
-if (marks >= 50):
-    print("Pass")
+if (pocket_money >= 20):
+    print("You can buy 1 Chocolate! 🍫")
 
-if (marks >= 80):
-    print("Grade A")
+if (pocket_money >= 50):
+    print("You can buy 1 Ice Cream! 🍦")
 
-if (marks >= 90):
-    print("Excellent")
+if (pocket_money >= 100):
+    print("You can buy 1 Toy! 🧸")
 ```
 
 Output:
 
-```python
-Pass
-Grade A
-Excellent
+```text
+You can buy 1 Chocolate! 🍫
+You can buy 1 Ice Cream! 🍦
+You can buy 1 Toy! 🧸
 ```
 
 ---
 
 # 📘 Explanation
 
-All conditions were True.
-
-So all `if` statements ran separately.
-
----
-
-# 📙 Flow of Multiple if Statements
-
-```text
-if 1 → check
-if 2 → check
-if 3 → check
-```
-
-Every condition runs independently.
-
----
-
-# 📕 Difference Between Multiple if and if elif else
-
-| Multiple if | if elif else |
-|---|---|
-| All conditions check | Stops after first True condition |
-| Multiple blocks can run | Only one block runs |
-| Independent conditions | Connected conditions |
-
----
-
-# 📒 Example of if elif else
+All three conditions were True for:
 
 ```python
-marks = 95
+pocket_money = 100
+```
 
-if (marks >= 90):
-    print("Excellent")
+So all three `if` statements ran independently.
 
-elif (marks >= 80):
-    print("Grade A")
+The kid got:
 
-elif (marks >= 50):
-    print("Pass")
+- Chocolate 🍫
+- Ice Cream 🍦
+- Toy 🧸
+
+But logically this is wrong because with the same money the child should get only one best option.
+
+---
+
+# 📙 Why This is Wrong?
+
+Because:
+
+```text
+Multiple if statements do not stop after one True condition.
+```
+
+Every `if` checks separately.
+
+---
+
+# 📒 Flow Diagram of Multiple if
+
+```text
+Check if 1 → True → Run
+Check if 2 → True → Run
+Check if 3 → True → Run
+```
+
+All conditions continue checking independently.
+
+---
+
+# 📗 Step 2: Correct Fix Using if-elif-else
+
+```python
+pocket_money = 100
+
+if (pocket_money >= 100):
+    print("You can buy 1 Toy! 🧸")
+
+elif (pocket_money >= 50):
+    print("You can buy 1 Ice Cream! 🍦")
+
+elif (pocket_money >= 20):
+    print("You can buy 1 Chocolate! 🍫")
+
+else:
+    print("Sorry! Not enough money 😢")
 ```
 
 Output:
 
-```python
-Excellent
+```text
+You can buy 1 Toy! 🧸
 ```
 
 ---
 
-# 📗 Explanation
+# 📘 Explanation
 
-Python found:
+Python first checks:
 
 ```python
-(marks >= 90)
+(pocket_money >= 100)
 ```
 
-True.
+Result:
 
-So Python stopped checking further conditions.
+```python
+True
+```
+
+So Python prints:
+
+```python
+You can buy 1 Toy! 🧸
+```
+
+After finding the first True condition:
+
+```text
+Python stops checking further conditions.
+```
+
+So the other `elif` blocks are skipped.
 
 ---
 
-# 📘 Diagram of Multiple if vs if elif else
+# 📙 Flow Diagram of if-elif-else
+
+```text
+Condition 1 → True
+        ↓
+Run Block
+        ↓
+Stop Further Checking
+```
+
+Only one matching block runs.
+
+---
+
+# 📕 Difference Between Multiple if and if-elif-else
+
+| Multiple if | if-elif-else |
+|---|---|
+| All conditions are checked | Stops after first True condition |
+| Multiple blocks can run together | Only one block runs |
+| Conditions are independent | Conditions are connected |
+| Used when many things can be True together | Used when only one result should happen |
+
+---
+
+# 📒 Step 3: Correct Use of Multiple if
+
+Multiple `if` statements are not always wrong.
+
+Sometimes they are the correct choice.
+
+Example:
+
+```text
+School Bag Checklist 🎒
+```
+
+---
+
+## Example (Correct Use of Multiple if)
+
+```python
+has_pencil = True
+has_book = True
+has_water_bottle = True
+
+if (has_pencil):
+    print("✅ Pencil packed - ready to write!")
+
+if (has_book):
+    print("✅ Book packed - ready to study!")
+
+if (has_water_bottle):
+    print("✅ Water bottle packed - no more thirst!")
+```
+
+Output:
+
+```text
+✅ Pencil packed - ready to write!
+✅ Book packed - ready to study!
+✅ Water bottle packed - no more thirst!
+```
+
+---
+
+# 📘 Explanation
+
+A school bag can contain:
+
+- Pencil ✏️
+- Book 📘
+- Water Bottle 💧
+
+all together at the same time.
+
+These are independent things.
+
+So checking every condition separately makes sense.
+
+That is why:
+
+```text
+Multiple if statements are correct here.
+```
+
+---
+
+# 📙 Final Rule to Remember
+
+## Use if-elif-else When:
+
+Only one result should happen.
+
+Examples:
+
+- Grades
+- Weather
+- Traffic Lights
+- Pocket Money Rewards
+
+---
+
+## Use Multiple if When:
+
+Multiple things can all be True together.
+
+Examples:
+
+- Checklist
+- Permissions
+- Features
+- Multiple Discounts
+- Bag Items
+
+---
+
+# 📘 Final Comparison Diagram
 
 ## Multiple if
 
@@ -642,15 +790,21 @@ Condition 2 → Run
 Condition 3 → Run
 ```
 
+All conditions check independently.
+
 ---
 
-## if elif else
+## if-elif-else
 
 ```text
 Condition 1 → True
         ↓
+Run Block
+        ↓
 Stop Checking Further Conditions
 ```
+
+Only one block runs.
 
 ---
 
