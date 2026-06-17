@@ -20,27 +20,20 @@ Conditional statements are one of the most important concepts in programming bec
 
 # 📗 Conditional Statements Concepts
 
-- What are Conditional Statements
-- Syntax of Conditional Statements
+- Conditional Statements
 - `if` Statement
 - `elif` Statement
 - `else` Statement
-- Code Execution Flow
-- Traffic Light Practical Example
-- Difference Between `if` and `elif`
-- Difference Between `if`, `elif`, and `else`
-- Using `True` and `False` in Conditions
 - Indentation in Python
-- Multiple `if` Statements
-- Difference Between Multiple `if` and `if elif else`
-- Using Logical Operators with Conditions
-- `and` Operator
-- `or` Operator
+- Multiple `if` vs `if-elif-else`
+- Logical Operators with Conditions
 - Nested Conditions
 
 ---
 
-# 📘 What are Conditional Statements?
+# 1️⃣ Conditional Statements
+
+## 📘 What are Conditional Statements?
 
 Conditional statements are used to execute code based on conditions.
 
@@ -58,7 +51,7 @@ If the condition is `False`, Python skips the code.
 
 ---
 
-# 📙 Syntax of Conditional Statements
+## 📙 Syntax of Conditional Statements
 
 ```python
 if (condition):
@@ -73,7 +66,7 @@ else:
 
 ---
 
-# 📗 How Python Checks Conditions
+## 📗 Code Execution Flow
 
 Python always checks conditions from:
 
@@ -91,7 +84,7 @@ Execution flow:
 
 ---
 
-# 📘 Flow Diagram of Conditional Statements
+## 📘 Flow Diagram of Conditional Statements
 
 ```text
             Start
@@ -114,7 +107,9 @@ Execution flow:
 
 ---
 
-# 📗 1. if Statement
+# 2️⃣ if Statement
+
+## 📘 What is if Statement?
 
 The `if` statement is used to check the first condition.
 
@@ -122,7 +117,7 @@ If the condition is `True`, the code inside the `if` block runs.
 
 ---
 
-## Syntax of if Statement
+## 📙 Syntax of if Statement
 
 ```python
 if (condition):
@@ -131,7 +126,7 @@ if (condition):
 
 ---
 
-# 📘 Traffic Light Example Using if
+## 📗 Traffic Light Example Using if
 
 ```python
 light = "red"
@@ -148,7 +143,7 @@ Stop
 
 ---
 
-# 📙 Explanation
+## 📘 Explanation
 
 Python checks:
 
@@ -170,7 +165,7 @@ print("Stop")
 
 ---
 
-# 📕 Example with False Condition
+## 📙 Example with False Condition
 
 ```python
 light = "green"
@@ -194,19 +189,7 @@ so Python skipped the if block.
 
 ---
 
-# 📒 Using True in if Statement
-
-We can also directly write:
-
-```python
-if (True):
-```
-
-This means the condition is always True.
-
----
-
-## Example
+## 📗 Using True in if Statement
 
 ```python
 if (True):
@@ -221,7 +204,7 @@ Python Class
 
 ---
 
-# 📗 Using False in if Statement
+## 📘 Using False in if Statement
 
 ```python
 if (False):
@@ -242,7 +225,9 @@ False condition never runs
 
 ---
 
-# 📘 2. elif Statement
+# 3️⃣ elif Statement
+
+## 📘 What is elif Statement?
 
 `elif` means:
 
@@ -254,7 +239,7 @@ else if
 
 ---
 
-## Syntax of elif
+## 📙 Syntax of elif
 
 ```python
 if (condition):
@@ -266,7 +251,7 @@ elif (condition):
 
 ---
 
-# 📙 Traffic Light Example Using elif
+## 📗 Traffic Light Example Using elif
 
 ```python
 light = "yellow"
@@ -286,7 +271,7 @@ Ready
 
 ---
 
-# 📗 Explanation
+## 📘 Explanation
 
 Python first checks:
 
@@ -320,7 +305,7 @@ print("Ready")
 
 ---
 
-# 📘 Difference Between if and elif
+## 📙 Difference Between if and elif
 
 | if | elif |
 |---|---|
@@ -330,7 +315,7 @@ print("Ready")
 
 ---
 
-# 📕 Multiple elif Example
+## 📗 Multiple elif Example
 
 ```python
 light = "yellow"
@@ -353,13 +338,15 @@ Ready
 
 ---
 
-# 📒 3. else Statement
+# 4️⃣ else Statement
+
+## 📘 What is else Statement?
 
 The `else` statement runs when all conditions become False.
 
 ---
 
-## Syntax of else
+## 📙 Syntax of else
 
 ```python
 if (condition):
@@ -371,7 +358,7 @@ else:
 
 ---
 
-# 📗 Traffic Light Example Using else
+## 📗 Traffic Light Example Using else
 
 ```python
 light = "blue"
@@ -397,7 +384,7 @@ Invalid Traffic Light Color
 
 ---
 
-# 📘 Explanation
+## 📘 Explanation
 
 Python checks:
 
@@ -445,7 +432,7 @@ runs automatically.
 
 ---
 
-# 📙 Difference Between if, elif, and else
+## 📙 Difference Between if, elif, and else
 
 | Statement | Purpose |
 |---|---|
@@ -455,7 +442,7 @@ runs automatically.
 
 ---
 
-# 📗 How Many Times Can We Write Them?
+## 📗 How Many Times Can We Write Them?
 
 | Statement | Usage Limit |
 |---|---|
@@ -465,7 +452,7 @@ runs automatically.
 
 ---
 
-# 📘 Correct Sequence
+## 📘 Correct Sequence
 
 ```python
 if
@@ -477,7 +464,9 @@ This order is important.
 
 ---
 
-# 📕 Indentation in Python
+# 5️⃣ Indentation in Python
+
+## 📘 What is Indentation?
 
 Python uses indentation to define blocks of code.
 
@@ -489,7 +478,7 @@ Spaces before code
 
 ---
 
-## Correct Example
+## 📙 Correct Example
 
 ```python
 if (True):
@@ -498,7 +487,7 @@ if (True):
 
 ---
 
-## Wrong Example
+## 📗 Wrong Example
 
 ```python
 if (True):
@@ -513,7 +502,7 @@ IndentationError
 
 ---
 
-# 📒 Why Indentation is Important?
+## 📘 Why Indentation is Important?
 
 Indentation tells Python:
 
@@ -524,64 +513,104 @@ Which code belongs inside the condition
 Without proper indentation, Python cannot understand the code structure.
 
 ---
-# 📕 Multiple if vs if-elif-else
 
-This examples shows the difference between **multiple separate if statements** and **if-elif-else**, using a Wrong Example → Correct Fix → Correct Use of if structure.
+# 6️⃣ Multiple if vs if-elif-else
+
+## 📘 What is Multiple if?
+
+In multiple `if` statements:
+
+```text
+Every condition checks independently
+```
+
+Even if one condition becomes True:
+
+```text
+Python still checks the remaining if statements.
+```
 
 ---
 
-# 📗 Step 1: Wrong Use of Multiple if Statements
-
-We will use a **Loyalty Reward Tier** 🏅 example, based on how many points a customer has earned. A customer's **membership status** (Bronze, Silver, or Gold) should be just **one tier** — not three at once.
+## 📙 Flow of Multiple if
 
 ```text
-Every if condition checks independently
+Condition 1 → Check
+Condition 2 → Check
+Condition 3 → Check
 ```
 
-## Example (Wrong Way)
+---
+
+## 📗 Wrong Example Using Multiple if
+
+We will use a **Loyalty Reward Tier** example.
+
+A customer should only have:
+
+- Bronze Membership
+- Silver Membership
+- Gold Membership
+
+A customer cannot belong to all tiers at the same time.
 
 ```python
 points = 100
 
 if(points >= 20):
-    print("🥉 Bronze Member - Free Chocolate Unlocked!")
+    print("Bronze Member - Free Chocolate Unlocked!")
 
 if(points >= 50):
-    print("🥈 Silver Member - Free Ice Cream Unlocked!")
+    print("Silver Member - Free Ice Cream Unlocked!")
 
 if(points >= 100):
-    print("🥇 Gold Member - Free Toy Unlocked!")
+    print("Gold Member - Free Toy Unlocked!")
 ```
 
 Output:
 
 ```text
-🥉 Bronze Member - Free Chocolate Unlocked!
-🥈 Silver Member - Free Ice Cream Unlocked!
-🥇 Gold Member - Free Toy Unlocked!
+Bronze Member - Free Chocolate Unlocked!
+Silver Member - Free Ice Cream Unlocked!
+Gold Member - Free Toy Unlocked!
 ```
 
 ---
 
-# 📘 Explanation
+## 📘 Explanation
 
-All three conditions were True for `points = 100`.
+All three conditions became True because:
 
-So all three `if` statements ran **independently**, and the customer got **three different membership statuses** at once — Bronze, Silver, and Gold. But a real customer can only hold **one membership tier** at a time. Unlike splitting money between items, a status/badge has no "combine" option — so showing all three is simply wrong.
+```python
+points = 100
+```
+
+So Python executed all three `if` statements separately.
+
+But logically:
+
+```text
+A customer should only have ONE membership tier.
+```
+
+So this approach is wrong.
 
 ---
 
-# 📙 Step 2: Correct Fix Using if-elif-else
+## 📙 Correct Example Using if-elif-else
 
 ```python
 points = 100
 
 if(points >= 100):
-    print("🥇 Gold Member - Free Toy Unlocked!")
+    print("Gold Member - Free Toy Unlocked!")
+
 elif(points >= 50):
-    print("🥈 Silver Member - Free Ice Cream Unlocked!")
+    print("Silver Member - Free Ice Cream Unlocked!")
+
 elif(points >= 20):
-    print("🥉 Bronze Member - Free Chocolate Unlocked!")
+    print("Bronze Member - Free Chocolate Unlocked!")
+
 else:
     print("Keep earning points to unlock rewards!")
 ```
@@ -589,26 +618,40 @@ else:
 Output:
 
 ```text
-🥇 Gold Member - Free Toy Unlocked!
+Gold Member - Free Toy Unlocked!
 ```
 
 ---
 
-# 📕 Explanation
+## 📗 Explanation
 
-Python checked:
+Python first checked:
 
 ```python
-points >= 100
+(points >= 100)
 ```
 
-True.
+Result:
 
-So Python printed the Gold Member message and **stopped checking further conditions**. The customer got only **one correct membership status** — exactly what should happen, since a person can only belong to one tier at a time.
+```python
+True
+```
+
+So Python printed:
+
+```text
+Gold Member - Free Toy Unlocked!
+```
+
+After finding the first True condition:
+
+```text
+Python stopped checking further conditions.
+```
 
 ---
 
-# 📙 Flow Diagram of if-elif-else
+## 📘 Flow of if-elif-else
 
 ```text
 Condition 1 → True
@@ -618,36 +661,19 @@ Run Block
 Stop Further Checking
 ```
 
-Only one matching block runs.
-
 ---
 
-# 📕 Difference Between Multiple if and if-elif-else
+## 📙 Difference Between Multiple if and if-elif-else
 
 | Multiple if | if-elif-else |
 |---|---|
 | All conditions are checked | Stops after first True condition |
 | Multiple blocks can run together | Only one block runs |
 | Conditions are independent | Conditions are connected |
-| Used when many things can be True together | Used when only one result should happen |
 
 ---
 
-# 📒 Step 3: Correct Use of Multiple if
-
-Multiple `if` statements are not always wrong.
-
-Sometimes they are the correct choice.
-
-Example:
-
-```text
-School Bag Checklist 🎒
-```
-
----
-
-## Example (Correct Use of Multiple if)
+## 📗 Correct Use of Multiple if
 
 ```python
 has_pencil = True
@@ -674,92 +700,19 @@ Water bottle packed - no more thirst!
 
 ---
 
-# 📘 Explanation
+## 📘 Why Multiple if is Correct Here?
 
-A school bag can contain:
-
-- Pencil ✏️
-- Book 📘
-- Water Bottle 💧
-
-all together at the same time.
-
-These are independent things.
-
-So checking every condition separately makes sense.
-
-That is why:
-
-```text
-Multiple if statements are correct here.
-```
+Because all these conditions can be True together at the same time.
 
 ---
 
-# 📙 Final Rule to Remember
-
-## Use if-elif-else When:
-
-Only one result should happen.
-
-Examples:
-
-- Grades
-- Weather
-- Traffic Lights
-- Pocket Money Rewards
-
----
-
-## Use Multiple if When:
-
-Multiple things can all be True together.
-
-Examples:
-
-- Checklist
-- Permissions
-- Features
-- Multiple Discounts
-- Bag Items
-
----
-
-# 📘 Final Comparison Diagram
-
-## Multiple if
-
-```text
-Condition 1 → Run
-Condition 2 → Run
-Condition 3 → Run
-```
-
-All conditions check independently.
-
----
-
-## if-elif-else
-
-```text
-Condition 1 → True
-        ↓
-Run Block
-        ↓
-Stop Checking Further Conditions
-```
-
-Only one block runs.
-
----
-
-# 📙 Using Logical Operators with Conditions
+# 7️⃣ Logical Operators with Conditions
 
 Logical operators help us combine multiple conditions.
 
 ---
 
-# 📗 Using and Operator
+## 📘 Using and Operator
 
 The `and` operator returns True only when:
 
@@ -769,7 +722,7 @@ Both conditions are True
 
 ---
 
-## Example
+### Example
 
 ```python
 marks = 85
@@ -787,31 +740,7 @@ Pass
 
 ---
 
-# 📘 Explanation
-
-Python checks:
-
-```python
-(marks >= 80)
-```
-
-and
-
-```python
-(attendance >= 75)
-```
-
-Since both are True:
-
-```python
-Pass
-```
-
-prints.
-
----
-
-# 📕 Using or Operator
+## 📙 Using or Operator
 
 The `or` operator returns True when:
 
@@ -821,7 +750,7 @@ At least one condition is True
 
 ---
 
-## Example
+### Example
 
 ```python
 day = "Sunday"
@@ -838,60 +767,9 @@ Weekend
 
 ---
 
-# 📒 Explanation
+# 8️⃣ Nested Conditions
 
-Python checks:
-
-```python
-(day == "Sunday")
-```
-
-Result:
-
-```python
-True
-```
-
-Since one condition is already True:
-
-```python
-or
-```
-
-returns True.
-
----
-
-# 📗 Practical Grade System Example
-
-```python
-marks = 92
-
-if (marks >= 90):
-    print("Grade A+")
-
-elif (marks >= 80):
-    print("Grade A")
-
-elif (marks >= 70):
-    print("Grade B")
-
-elif (marks >= 60):
-    print("Grade C")
-
-else:
-    print("Fail")
-```
-
-Output:
-
-```python
-Grade A+
-```
-
----
-
-# 📘 Nested Conditions
+## 📘 What are Nested Conditions?
 
 Nested conditions mean:
 
@@ -901,7 +779,7 @@ A condition inside another condition
 
 ---
 
-## Syntax of Nested Conditions
+## 📙 Syntax of Nested Conditions
 
 ```python
 if (condition):
@@ -912,7 +790,7 @@ if (condition):
 
 ---
 
-# 📙 Example of Nested Conditions
+## 📗 Example of Nested Conditions
 
 ```python
 age = 20
@@ -938,7 +816,7 @@ Entry Allowed
 
 ---
 
-# 📗 How Nested Conditions Work
+## 📘 How Nested Conditions Work
 
 Python first checks:
 
@@ -964,7 +842,7 @@ prints.
 
 ---
 
-# 📘 Nested Condition Flow Diagram
+## 📙 Nested Condition Flow Diagram
 
 ```text
 Check Age
@@ -986,25 +864,5 @@ Yes    No
 Entry   ID Required
 Allowed
 ```
-
----
-
-# 📙 Final Flow of Conditional Statements
-
-```text
-if
- ↓
-elif
- ↓
-else
-```
-
-Python stops checking conditions as soon as it finds:
-
-```text
-True
-```
-
-Only one matching block runs.
 
 ---
