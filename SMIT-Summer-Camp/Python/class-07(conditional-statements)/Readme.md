@@ -532,7 +532,7 @@ This examples shows the difference between **multiple separate if statements** a
 
 # 📗 Step 1: Wrong Use of Multiple if Statements
 
-We will use an **Ice Cream Shop** 🍦 example, based on how much pocket money a kid has.
+We will use a **Loyalty Reward Tier** 🏅 example, based on how many points a customer has earned. A customer's **membership status** (Bronze, Silver, or Gold) should be just **one tier** — not three at once.
 
 ```text
 Every if condition checks independently
@@ -541,125 +541,70 @@ Every if condition checks independently
 ## Example (Wrong Way)
 
 ```python
-pocket_money = 100
+points = 100
 
-if (pocket_money >= 20):
-    print("You can buy 1 Chocolate! 🍫")
+if(points >= 20):
+    print("🥉 Bronze Member - Free Chocolate Unlocked!")
 
-if (pocket_money >= 50):
-    print("You can buy 1 Ice Cream! 🍦")
+if(points >= 50):
+    print("🥈 Silver Member - Free Ice Cream Unlocked!")
 
-if (pocket_money >= 100):
-    print("You can buy 1 Toy! 🧸")
+if(points >= 100):
+    print("🥇 Gold Member - Free Toy Unlocked!")
 ```
 
 Output:
 
 ```text
-You can buy 1 Chocolate! 🍫
-You can buy 1 Ice Cream! 🍦
-You can buy 1 Toy! 🧸
+🥉 Bronze Member - Free Chocolate Unlocked!
+🥈 Silver Member - Free Ice Cream Unlocked!
+🥇 Gold Member - Free Toy Unlocked!
 ```
 
 ---
 
 # 📘 Explanation
 
-All three conditions were True for:
+All three conditions were True for `points = 100`.
+
+So all three `if` statements ran **independently**, and the customer got **three different membership statuses** at once — Bronze, Silver, and Gold. But a real customer can only hold **one membership tier** at a time. Unlike splitting money between items, a status/badge has no "combine" option — so showing all three is simply wrong.
+
+---
+
+# 📙 Step 2: Correct Fix Using if-elif-else
 
 ```python
-pocket_money = 100
-```
+points = 100
 
-So all three `if` statements ran independently.
-
-The kid got:
-
-- Chocolate 🍫
-- Ice Cream 🍦
-- Toy 🧸
-
-But logically this is wrong because with the same money the child should get only one best option.
-
----
-
-# 📙 Why This is Wrong?
-
-Because:
-
-```text
-Multiple if statements do not stop after one True condition.
-```
-
-Every `if` checks separately.
-
----
-
-# 📒 Flow Diagram of Multiple if
-
-```text
-Check if 1 → True → Run
-Check if 2 → True → Run
-Check if 3 → True → Run
-```
-
-All conditions continue checking independently.
-
----
-
-# 📗 Step 2: Correct Fix Using if-elif-else
-
-```python
-pocket_money = 100
-
-if (pocket_money >= 100):
-    print("You can buy 1 Toy! 🧸")
-
-elif (pocket_money >= 50):
-    print("You can buy 1 Ice Cream! 🍦")
-
-elif (pocket_money >= 20):
-    print("You can buy 1 Chocolate! 🍫")
-
+if(points >= 100):
+    print("🥇 Gold Member - Free Toy Unlocked!")
+elif(points >= 50):
+    print("🥈 Silver Member - Free Ice Cream Unlocked!")
+elif(points >= 20):
+    print("🥉 Bronze Member - Free Chocolate Unlocked!")
 else:
-    print("Sorry! Not enough money 😢")
+    print("Keep earning points to unlock rewards!")
 ```
 
 Output:
 
 ```text
-You can buy 1 Toy! 🧸
+🥇 Gold Member - Free Toy Unlocked!
 ```
 
 ---
 
-# 📘 Explanation
+# 📕 Explanation
 
-Python first checks:
-
-```python
-(pocket_money >= 100)
-```
-
-Result:
+Python checked:
 
 ```python
-True
+points >= 100
 ```
 
-So Python prints:
+True.
 
-```python
-You can buy 1 Toy! 🧸
-```
-
-After finding the first True condition:
-
-```text
-Python stops checking further conditions.
-```
-
-So the other `elif` blocks are skipped.
+So Python printed the Gold Member message and **stopped checking further conditions**. The customer got only **one correct membership status** — exactly what should happen, since a person can only belong to one tier at a time.
 
 ---
 
@@ -710,21 +655,21 @@ has_book = True
 has_water_bottle = True
 
 if (has_pencil):
-    print("✅ Pencil packed - ready to write!")
+    print("Pencil packed - ready to write!")
 
 if (has_book):
-    print("✅ Book packed - ready to study!")
+    print("Book packed - ready to study!")
 
 if (has_water_bottle):
-    print("✅ Water bottle packed - no more thirst!")
+    print("Water bottle packed - no more thirst!")
 ```
 
 Output:
 
 ```text
-✅ Pencil packed - ready to write!
-✅ Book packed - ready to study!
-✅ Water bottle packed - no more thirst!
+Pencil packed - ready to write!
+Book packed - ready to study!
+Water bottle packed - no more thirst!
 ```
 
 ---
