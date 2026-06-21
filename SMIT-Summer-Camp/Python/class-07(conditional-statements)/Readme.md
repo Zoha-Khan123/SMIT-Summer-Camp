@@ -28,6 +28,7 @@ Conditional statements are one of the most important concepts in programming bec
 - Multiple `if` vs `if-elif-else`
 - Logical Operators with Conditions
 - Nested Conditions
+- Truthy and Falsy Values
 
 ---
 
@@ -864,5 +865,328 @@ Yes    No
 Entry   ID Required
 Allowed
 ```
+
+---
+
+# 9️⃣ Truthy and Falsy Values in Python
+
+We already learned that conditions work on:
+
+```python
+True
+```
+
+and
+
+```python
+False
+```
+
+Now let's understand an important concept called:
+
+```text
+Truthy and Falsy Values
+```
+
+---
+
+# 📗 Example Using Static True Values
+
+```python
+has_pencil = True
+has_book = True
+has_water_bottle = True
+
+if (has_pencil):
+    print("Pencil packed - ready to write!")
+
+if (has_book):
+    print("Book packed - ready to study!")
+
+if (has_water_bottle):
+    print("Water bottle packed - no more thirst!")
+```
+
+Output:
+
+```text
+Pencil packed - ready to write!
+Book packed - ready to study!
+Water bottle packed - no more thirst!
+```
+
+---
+
+# 📘 Explanation
+
+In this example:
+
+```python
+has_pencil = True
+```
+
+means:
+
+```text
+Condition is True
+```
+
+So Python runs the code inside the `if` block.
+
+The same happens for:
+
+```python
+has_book
+```
+
+and
+
+```python
+has_water_bottle
+```
+
+because all variables contain:
+
+```python
+True
+```
+
+---
+
+# 📙 What if We Use Input?
+
+Now suppose we want to ask the user.
+
+Example:
+
+```python
+has_pencil = input("Do you have pencil?")
+```
+
+If the user writes:
+
+```text
+True
+```
+
+or
+
+```text
+False
+```
+
+Python still receives them as:
+
+```python
+"True"
+```
+
+and
+
+```python
+"False"
+```
+
+because:
+
+```python
+input()
+```
+
+always returns data in:
+
+```text
+String form
+```
+
+---
+
+# 📘 Using bool() Function
+
+Some students may think this is correct:
+
+```python
+has_pencil = bool(input("Do you have pencil?"))
+```
+
+But this creates confusion.
+
+---
+
+# 📗 The Problem
+
+Suppose user writes:
+
+```text
+False
+```
+
+Python actually receives:
+
+```python
+"False"
+```
+
+Now Python checks:
+
+```python
+bool("False")
+```
+
+Output:
+
+```python
+True
+```
+
+---
+
+# 📕 Why Does This Happen?
+
+Because:
+
+```text
+"False"
+```
+
+is not an empty string.
+
+Python does not check the text inside the string.
+
+Python only checks:
+
+```text
+Is the value empty or not?
+```
+
+If the string contains any text:
+
+```python
+bool("Hello")
+bool("False")
+bool("0")
+```
+
+all become:
+
+```python
+True
+```
+
+because they are not empty.
+
+---
+
+# 📘 Example
+
+```python
+print(bool("False"))   # True
+print(bool("Hello"))   # True
+print(bool("0"))       # True
+print(bool(""))        # False
+```
+
+---
+
+# 📙 Falsy Values in Python
+
+Falsy values are values that become:
+
+```python
+False
+```
+
+when passed inside:
+
+```python
+bool()
+```
+
+---
+
+# 📗 Common Falsy Values
+
+| Value | Type |
+|---|---|
+| `False` | Boolean |
+| `None` | NoneType |
+| `0` | Integer |
+| `0.0` | Float |
+| `0j` | Complex |
+| `""` | Empty String |
+| `[]` | Empty List |
+| `()` | Empty Tuple |
+| `{}` | Empty Dictionary |
+| `set()` | Empty Set |
+
+---
+
+# 🖼️ Falsy Values Diagram
+
+![Falsy Values Diagram](images/Falsy-values.png)
+
+---
+
+# 📘 Important Rule
+
+```text
+All empty values are mostly False.
+All non-empty values are mostly True.
+```
+
+---
+
+# 📗 Correct Way to Take True/False Input
+
+```python
+has_pencil = input("Do you have pencil give me answer in this form (True or False)").lower()
+
+if (has_pencil == "true"):
+    print("Pencil packed - ready to write!")
+
+elif (has_pencil == "false"):
+    print("Not pencil")
+
+else:
+    print("Invalid input please write only True or False")
+```
+
+---
+
+# 📙 Explanation
+
+We use:
+
+```python
+.lower()
+```
+
+so users can write:
+
+```text
+TRUE
+True
+true
+```
+
+and all become:
+
+```python
+"true"
+```
+
+Then we manually compare the string with:
+
+```python
+"true"
+```
+
+and
+
+```python
+"false"
+```
+
+This is the correct and safer approach for user input.
 
 ---
