@@ -19,7 +19,10 @@ Lists are very useful in real-world applications where we need to manage collect
 - Creating Lists
 - Data Types Stored in Lists
 - Accessing List Values
+- Positive Indexing
+- Negative Indexing
 - Updating Lists
+- len() Function
 - List Slicing
 - Positive Slicing
 - Negative Slicing
@@ -159,7 +162,15 @@ Index numbers start from:
 
 ---
 
-## 📘 Example
+## 📘 Positive Index
+
+| Value | Zoha Khan | Sara | Ayesha |
+|---|---|---|---|
+| Index | 0 | 1 | 2 |
+
+---
+
+## 📙 Example
 
 ```python
 students = ["Zoha Khan", "Sara", "Ayesha"]
@@ -175,16 +186,91 @@ Zoha Khan
 
 ---
 
-## 📙 Index Position Diagram
+# 6️⃣ Positive Indexing
+
+Positive indexing starts from:
 
 ```text
-Value:   Zoha Khan   Sara   Ayesha
-Index:       0         1       2
+Left → Right
+```
+
+The first value always starts from index:
+
+```text
+0
 ```
 
 ---
 
-# 6️⃣ Updating Lists
+## 📘 Example
+
+```python
+students = ["Zoha Khan", "Sara", "Ayesha"]
+
+print(students[1])
+```
+
+Output:
+
+```python
+Sara
+```
+
+---
+
+# 7️⃣ Negative Indexing
+
+Negative indexing starts from:
+
+```text
+Right → Left
+```
+
+Negative indexes start from:
+
+```text
+-1
+```
+
+---
+
+## 📘 Negative Index
+
+| Value | Zoha Khan | Sara | Ayesha |
+|---|---|---|---|
+| Index | -3 | -2 | -1 |
+
+---
+
+## 📙 Example
+
+```python
+students = ["Zoha Khan", "Sara", "Ayesha"]
+
+print(students[-1])
+```
+
+Output:
+
+```python
+Ayesha
+```
+
+---
+
+## 📗 Explanation
+
+Python starts counting from the end.
+
+```python
+-1
+```
+
+means last value.
+
+---
+
+# 8️⃣ Updating Lists
 
 Lists are mutable.
 
@@ -196,9 +282,11 @@ Values inside lists can be changed.
 
 ---
 
-## 📘 Why Lists are Updateable?
+## 📘 Example Before Updating
 
-Because lists are designed to allow modification after creation.
+| Index | 0 | 1 | 2 |
+|---|---|---|---|
+| Value | Zoha Khan | Sara | Ayesha |
 
 ---
 
@@ -220,23 +308,61 @@ Output:
 
 ---
 
-## 📗 Explanation
+## 📗 After Updating
 
-Python replaced:
+| Index | 0 | 1 | 2 |
+|---|---|---|---|
+| Value | Zoha Khan | Fatima | Ayesha |
+
+---
+
+# 9️⃣ len() Function
+
+`len()` is used to find the total number of values inside a list.
+
+---
+
+## 📘 Syntax
 
 ```python
-Sara
-```
-
-with:
-
-```python
-Fatima
+len(list)
 ```
 
 ---
 
-# 7️⃣ List Slicing
+## 📙 Example
+
+```python
+students = ["Zoha Khan", "Sara", "Ayesha"]
+
+print(len(students))
+```
+
+Output:
+
+```python
+3
+```
+
+---
+
+## 📗 Explanation
+
+The list contains:
+
+```text
+3 values
+```
+
+so `len()` returned:
+
+```python
+3
+```
+
+---
+
+# 🔟 List Slicing
 
 Slicing is used to get multiple values from a list.
 
@@ -250,9 +376,17 @@ list[start:end]
 
 ---
 
-# 8️⃣ Positive Slicing
+# 1️⃣1️⃣ Positive Slicing
 
 Positive slicing starts from left to right.
+
+---
+
+## 📘 Positive Slicing
+
+| Value | Zoha Khan | Sara | Ayesha | Fatima | Hira |
+|---|---|---|---|---|---|
+| Index | 0 | 1 | 2 | 3 | 4 |
 
 ---
 
@@ -288,31 +422,21 @@ and stops before index:
 
 ---
 
-## 📘 Positive Index Diagram
+# 1️⃣2️⃣ Negative Slicing
 
-```text
-Value:   Zoha Khan   Sara   Ayesha   Fatima   Hira
-Index:       0         1       2         3       4
-```
+Negative slicing starts from right to left.
 
 ---
 
-# 9️⃣ Negative Slicing
+## 📘 Negative Slicing 
 
-Negative indexing starts from right to left.
-
----
-
-## 📙 Negative Index Diagram
-
-```text
-Value:   Zoha Khan   Sara   Ayesha   Fatima   Hira
-Index:      -5       -4       -3       -2      -1
-```
+| Value | Zoha Khan | Sara | Ayesha | Fatima | Hira |
+|---|---|---|---|---|---|
+| Index | -5 | -4 | -3 | -2 | -1 |
 
 ---
 
-## 📗 Example
+## 📙 Example
 
 ```python
 students = ["Zoha Khan", "Sara", "Ayesha", "Fatima", "Hira"]
@@ -328,15 +452,15 @@ Output:
 
 ---
 
-# 🔟 List Methods
+# 1️⃣3️⃣ List Methods
 
 Methods are built-in functions used with lists.
 
 ---
 
-# 1️⃣1️⃣ append()
+# 1️⃣4️⃣ append()
 
-`append()` adds a value at the end of the list.
+`append()` adds one value at the end of the list.
 
 ---
 
@@ -366,7 +490,7 @@ Output:
 
 ---
 
-# 1️⃣2️⃣ sort()
+# 1️⃣5️⃣ sort()
 
 `sort()` arranges values in ascending order.
 
@@ -390,7 +514,7 @@ Output:
 
 ---
 
-# 1️⃣3️⃣ sort(reverse=True)
+# 1️⃣6️⃣ sort(reverse=True)
 
 Used to sort values in descending order.
 
@@ -414,7 +538,7 @@ Output:
 
 ---
 
-# 1️⃣4️⃣ reverse()
+# 1️⃣7️⃣ reverse()
 
 `reverse()` reverses the list order.
 
@@ -438,7 +562,7 @@ Output:
 
 ---
 
-# 1️⃣5️⃣ insert()
+# 1️⃣8️⃣ insert()
 
 `insert()` adds a value at a specific index position.
 
@@ -470,7 +594,7 @@ Output:
 
 ---
 
-# 1️⃣6️⃣ remove()
+# 1️⃣9️⃣ remove()
 
 `remove()` deletes a specific value from the list.
 
@@ -494,13 +618,21 @@ Output:
 
 ---
 
-# 1️⃣7️⃣ pop()
+## 📙 Important Point
+
+`remove()` removes only one value at a time.
+
+It removes the first matching value.
+
+---
+
+# 2️⃣0️⃣ pop()
 
 `pop()` removes a value using index position.
 
 ---
 
-## 📙 Example
+## 📘 Example with Index
 
 ```python
 students = ["Zoha Khan", "Sara", "Ayesha"]
@@ -518,7 +650,7 @@ Output:
 
 ---
 
-## 📗 Explanation
+## 📙 Explanation
 
 Python removed the value present at:
 
@@ -534,23 +666,71 @@ Sara
 
 ---
 
-# 1️⃣8️⃣ Difference Between remove() and pop()
+# 📘 pop() Without Index
+
+If we do not provide any index inside `pop()`:
+
+```python
+list.pop()
+```
+
+then Python automatically removes the:
+
+```text
+Last value
+```
+
+from the list.
+
+---
+
+## 📙 Example
+
+```python
+students = ["Zoha Khan", "Sara", "Ayesha"]
+
+students.pop()
+
+print(students)
+```
+
+Output:
+
+```python
+['Zoha Khan', 'Sara']
+```
+
+---
+
+## 📗 Explanation
+
+Since no index was provided,
+
+Python automatically removed:
+
+```python
+Ayesha
+```
+
+because it was the last value.
+
+---
+
+# 2️⃣1️⃣ Difference Between remove() and pop()
 
 | remove() | pop() |
 |---|---|
 | Removes value by name | Removes value by index |
 | Uses actual value | Uses position number |
+| Removes first matching value | Removes value from specific index |
+| Needs value inside brackets | Index is optional |
 
 ---
 
-# 📘 Final List Diagram
+# 📘 Final List 
 
-```text
-List Example:
-
-["Zoha Khan", "Sara", "Ayesha"]
-
-      0          1         2
-```
+| Index | 0 | 1 | 2 |
+|---|---|---|---|
+| Value | Zoha Khan | Sara | Ayesha |
 
 ---
