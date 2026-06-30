@@ -1,301 +1,75 @@
-# 📘 Lecture 08: Lists in Python
+# 📘 Lecture 08: Lists and Tuples in Python
 
 Welcome to the Python Summer Camp Class 08!
 
-In this lecture, we will learn about **Lists in Python**.
+In this lecture, we will learn about Lists and Tuples in Python.
 
-Lists are one of the most important and commonly used data structures in Python.
-
-They allow us to store multiple values inside a single variable.
-
-Lists are very useful in real-world applications where we need to manage collections of data.
+Lists and Tuples are used to store multiple values in a single variable. They make our code cleaner and easier to manage.
 
 ---
 
-# 📗 List Concepts
+# List and Tuple Concepts
 
+- Why We Need Lists
 - What is a List
-- Why Lists are Used
 - Creating Lists
-- Data Types Stored in Lists
-- Accessing List Values
-- Positive Indexing
-- Negative Indexing
-- Updating Lists
-- len() Function
+- List Data Type
+- Accessing List Elements
+- List Length
+- Storing Different Data Types in Lists
+- Updating List Elements (Mutability)
 - List Slicing
-- Positive Slicing
-- Negative Slicing
 - List Methods
-  - `append()`
-  - `sort()`
-  - `sort(reverse=True)`
-  - `reverse()`
-  - `insert()`
-  - `remove()`
-  - `pop()`
+  - append()
+  - sort()
+  - reverse()
+  - insert()
+  - remove()
+  - pop()
+- What is a Tuple
+- Creating Tuples
+- Tuple Immutability
+- Accessing Tuple Elements
+- Tuple Methods
+  - index()
+  - count()
 
 ---
 
-# 1️⃣ What is a List?
+# Why We Need Lists?
 
-A **List** is a collection of multiple values stored inside a single variable.
+Let's say we want to store names of 5 students.
 
-Lists are written using:
-
-```python
-[ ]
-```
-
-square brackets.
-
----
-
-## 📘 Example of List
+Without lists, we would create separate variables:
 
 ```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
-```
-
----
-
-## 📙 Explanation
-
-Here:
-
-```python
-students
-```
-
-is a list containing multiple values.
-
----
-
-# 2️⃣ Why Lists are Used?
-
-Without lists, we would need separate variables for every value.
-
-Example without list:
-
-```python
-student1 = "Zoha Khan"
+student1 = "Ali"
 student2 = "Sara"
-student3 = "Ayesha"
+student3 = "Ahmed"
+student4 = "Fatima"
+student5 = "Hassan"
+
+print(student1)
+print(student2)
+print(student3)
+print(student4)
+print(student5)
 ```
 
-This becomes difficult when storing many values.
+### Problems with This Approach
 
-So Python provides lists to store multiple values together.
+- Too many variables
+- Hard to manage
+- Difficult to perform operations on all students at once
 
 ---
 
-# 3️⃣ Creating Lists
+# Using Lists - A Better Solution
 
-## 📘 String List
+Instead of creating separate variables, we can store all names in one list:
 
 ```python
-names = ["Zoha Khan", "Sara", "Ayesha"]
-```
-
----
-
-## 📙 Integer List
-
-```python
-numbers = [10, 20, 30, 40]
-```
-
----
-
-## 📗 Float List
-
-```python
-prices = [10.5, 20.7, 50.2]
-```
-
----
-
-## 📘 Boolean List
-
-```python
-status = [True, False, True]
-```
-
----
-
-# 4️⃣ Data Types Stored in Lists
-
-Python lists can store:
-
-- String
-- Integer
-- Float
-- Boolean
-
-and even mixed data types together.
-
----
-
-## 📙 Mixed Data Type Example
-
-```python
-data = ["Zoha Khan", 20, 5.8, True]
-```
-
-Output:
-
-```python
-['Zoha Khan', 20, 5.8, True]
-```
-
----
-
-# 5️⃣ Accessing List Values
-
-Lists use indexing to access values.
-
-Index numbers start from:
-
-```text
-0
-```
-
----
-
-## 📘 Positive Index
-
-| Value | Zoha Khan | Sara | Ayesha |
-|---|---|---|---|
-| Index | 0 | 1 | 2 |
-
----
-
-## 📙 Example
-
-```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
-
-print(students[0])
-```
-
-Output:
-
-```python
-Zoha Khan
-```
-
----
-
-# 6️⃣ Positive Indexing
-
-Positive indexing starts from:
-
-```text
-Left → Right
-```
-
-The first value always starts from index:
-
-```text
-0
-```
-
----
-
-## 📘 Example
-
-```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
-
-print(students[1])
-```
-
-Output:
-
-```python
-Sara
-```
-
----
-
-# 7️⃣ Negative Indexing
-
-Negative indexing starts from:
-
-```text
-Right → Left
-```
-
-Negative indexes start from:
-
-```text
--1
-```
-
----
-
-## 📘 Negative Index
-
-| Value | Zoha Khan | Sara | Ayesha |
-|---|---|---|---|
-| Index | -3 | -2 | -1 |
-
----
-
-## 📙 Example
-
-```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
-
-print(students[-1])
-```
-
-Output:
-
-```python
-Ayesha
-```
-
----
-
-## 📗 Explanation
-
-Python starts counting from the end.
-
-```python
--1
-```
-
-means last value.
-
----
-
-# 8️⃣ Updating Lists
-
-Lists are mutable.
-
-Mutable means:
-
-```text
-Values inside lists can be changed.
-```
-
----
-
-## 📘 Example Before Updating
-
-| Index | 0 | 1 | 2 |
-|---|---|---|---|
-| Value | Zoha Khan | Sara | Ayesha |
-
----
-
-## 📙 Example of Updating List
-
-```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
-
-students[1] = "Fatima"
+students = ["Ali", "Sara", "Ahmed", "Fatima", "Hassan"]
 
 print(students)
 ```
@@ -303,118 +77,132 @@ print(students)
 Output:
 
 ```python
-['Zoha Khan', 'Fatima', 'Ayesha']
+['Ali', 'Sara', 'Ahmed', 'Fatima', 'Hassan']
+```
+
+### Benefits of Using Lists
+
+- Store multiple values in one variable
+- Easy to manage
+- Can perform operations on all elements together
+
+---
+
+# What is a List?
+
+A **List** is a collection that stores multiple values in a single variable.
+
+- Lists are written using square brackets `[]`
+- Values are separated by commas
+- Lists can store any type of data
+
+### Example
+
+```python
+fruits = ["Apple", "Mango", "Banana"]
 ```
 
 ---
 
-## 📗 After Updating
+# 📗 Creating Lists
 
-| Index | 0 | 1 | 2 |
-|---|---|---|---|
-| Value | Zoha Khan | Fatima | Ayesha |
-
----
-
-# 9️⃣ len() Function
-
-`len()` is used to find the total number of values inside a list.
-
----
-
-## 📘 Syntax
+We can create lists by placing values inside square brackets.
 
 ```python
-len(list)
-```
+numbers = [1, 2, 3, 4, 5]
 
----
-
-## 📙 Example
-
-```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
-
-print(len(students))
+print(numbers)
 ```
 
 Output:
 
 ```python
-3
+[1, 2, 3, 4, 5]
 ```
 
 ---
 
-## 📗 Explanation
+## Empty List
 
-The list contains:
-
-```text
-3 values
-```
-
-so `len()` returned:
+We can also create an empty list:
 
 ```python
-3
-```
+empty_list = []
 
----
-
-# 🔟 List Slicing
-
-Slicing is used to get multiple values from a list.
-
----
-
-## 📘 Syntax of Slicing
-
-```python
-list[start:end]
-```
-
----
-
-# 1️⃣1️⃣ Positive Slicing
-
-Positive slicing starts from left to right.
-
----
-
-## 📘 Positive Slicing
-
-| Value | Zoha Khan | Sara | Ayesha | Fatima | Hira |
-|---|---|---|---|---|---|
-| Index | 0 | 1 | 2 | 3 | 4 |
-
----
-
-## 📙 Example
-
-```python
-students = ["Zoha Khan", "Sara", "Ayesha", "Fatima", "Hira"]
-
-print(students[1:4])
+print(empty_list)
 ```
 
 Output:
 
 ```python
-['Sara', 'Ayesha', 'Fatima']
+[]
 ```
 
 ---
 
-## 📗 Explanation
+# List Data Type
 
-Python starts from index:
+The data type of a list is `list`.
 
 ```python
-1
+numbers = [1, 2, 3, 4, 5]
+
+print(type(numbers))
 ```
 
-and stops before index:
+Output:
+
+```python
+<class 'list'>
+```
+
+---
+
+# 📙 Accessing List Elements
+
+Every element in a list has an index number.
+
+Lists use **zero-based indexing**, meaning the first element is at index 0.
+
+```python
+fruits = ["Apple", "Mango", "Banana", "Orange"]
+```
+
+| Element | Apple | Mango | Banana | Orange |
+|---------|-------|-------|--------|--------|
+| Index | 0 | 1 | 2 | 3 |
+
+---
+
+## Accessing Elements Example
+
+```python
+fruits = ["Apple", "Mango", "Banana", "Orange"]
+
+print(fruits[0])
+print(fruits[2])
+```
+
+Output:
+
+```python
+Apple
+Banana
+```
+
+---
+
+# List Length
+
+We can find the total number of elements in a list using `len()`.
+
+```python
+fruits = ["Apple", "Mango", "Banana", "Orange"]
+
+print(len(fruits))
+```
+
+Output:
 
 ```python
 4
@@ -422,84 +210,257 @@ and stops before index:
 
 ---
 
-# 1️⃣2️⃣ Negative Slicing
+# 📕 Storing Different Data Types in Lists
 
-Negative slicing starts from right to left.
-
----
-
-## 📘 Negative Slicing 
-
-| Value | Zoha Khan | Sara | Ayesha | Fatima | Hira |
-|---|---|---|---|---|---|
-| Index | -5 | -4 | -3 | -2 | -1 |
-
----
-
-## 📙 Example
+Lists can store different types of data at the same time.
 
 ```python
-students = ["Zoha Khan", "Sara", "Ayesha", "Fatima", "Hira"]
+mixed_list = [10, 20.5, "Python", True]
 
-print(students[-4:-1])
+print(mixed_list)
 ```
 
 Output:
 
 ```python
-['Sara', 'Ayesha', 'Fatima']
+[10, 20.5, 'Python', True]
 ```
 
----
+Here:
 
-# 1️⃣3️⃣ List Methods
-
-Methods are built-in functions used with lists.
-
----
-
-# 1️⃣4️⃣ append()
-
-`append()` adds one value at the end of the list.
+- `10` is an integer
+- `20.5` is a float
+- `"Python"` is a string
+- `True` is a boolean
 
 ---
 
-## 📘 Syntax
+# 📒 Updating List Elements
+
+We can change the value of list elements using indexing.
 
 ```python
-list.append(value)
-```
+fruits = ["Apple", "Mango", "Banana"]
 
----
+print("Before:", fruits)
 
-## 📙 Example
+fruits[1] = "Orange"
 
-```python
-students = ["Zoha Khan", "Sara"]
-
-students.append("Ayesha")
-
-print(students)
+print("After:", fruits)
 ```
 
 Output:
 
 ```python
-['Zoha Khan', 'Sara', 'Ayesha']
+Before: ['Apple', 'Mango', 'Banana']
+After: ['Apple', 'Orange', 'Banana']
 ```
 
 ---
 
-# 1️⃣5️⃣ sort()
+## Why Can We Update Lists?
 
-`sort()` arranges values in ascending order.
+Lists are **mutable**.
+
+**Mutable** means we can change the values after the list is created.
 
 ---
 
-## 📘 Example
+## Important Point
+
+Strings are immutable, but lists are mutable.
 
 ```python
-numbers = [50, 10, 40, 20]
+# This works with lists
+numbers = [1, 2, 3]
+numbers[0] = 10
+print(numbers)
+```
+
+Output:
+
+```python
+[10, 2, 3]
+```
+
+---
+
+# 📗 List Slicing
+
+Slicing is used to get a specific part of a list.
+
+Syntax:
+
+```python
+list[start : end]
+```
+
+---
+
+## Positive Slicing
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[1:4])
+```
+
+Output:
+
+```python
+[20, 30, 40]
+```
+
+---
+
+## Important Point
+
+The ending index is **not included**.
+
+`1:4` means:
+
+- Start from index 1
+- Stop before index 4
+
+---
+
+## If Start Index is Missing
+
+Python automatically starts from index 0.
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[:3])
+```
+
+Output:
+
+```python
+[10, 20, 30]
+```
+
+---
+
+## If End Index is Missing
+
+Python automatically goes till the end.
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[2:])
+```
+
+Output:
+
+```python
+[30, 40, 50]
+```
+
+---
+
+## Using len() with Slicing
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[0:len(numbers)])
+```
+
+Output:
+
+```python
+[10, 20, 30, 40, 50]
+```
+
+---
+
+## Negative Slicing
+
+Negative indexing starts from the end.
+
+```python
+numbers = [10, 20, 30, 40, 50]
+```
+
+| Element | 10 | 20 | 30 | 40 | 50 |
+|---------|----|----|----|----|-----|
+| Positive Index | 0 | 1 | 2 | 3 | 4 |
+| Negative Index | -5 | -4 | -3 | -2 | -1 |
+
+Example:
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[-3:-1])
+```
+
+Output:
+
+```python
+[30, 40]
+```
+
+---
+
+# 📙 List Methods
+
+List methods are used to perform different operations on lists.
+
+---
+
+# 1. append()
+
+`append()` adds one element at the end of the list.
+
+```python
+fruits = ["Apple", "Mango"]
+
+fruits.append("Banana")
+
+print(fruits)
+```
+
+Output:
+
+```python
+['Apple', 'Mango', 'Banana']
+```
+
+---
+
+## Important Point
+
+`append()` does **not return** any value.
+
+It returns `None` and directly changes the original list.
+
+```python
+fruits = ["Apple", "Mango"]
+
+result = fruits.append("Banana")
+
+print(result)
+print(fruits)
+```
+
+Output:
+
+```python
+None
+['Apple', 'Mango', 'Banana']
+```
+
+---
+
+# 2. sort()
+
+`sort()` arranges the list in ascending order.
+
+```python
+numbers = [50, 10, 30, 20, 40]
 
 numbers.sort()
 
@@ -509,21 +470,61 @@ print(numbers)
 Output:
 
 ```python
-[10, 20, 40, 50]
+[10, 20, 30, 40, 50]
 ```
 
 ---
 
-# 1️⃣6️⃣ sort(reverse=True)
+## Sorting Strings
 
-Used to sort values in descending order.
+`sort()` also works on strings.
+
+```python
+fruits = ["Mango", "Apple", "Banana"]
+
+fruits.sort()
+
+print(fruits)
+```
+
+Output:
+
+```python
+['Apple', 'Banana', 'Mango']
+```
 
 ---
 
-## 📙 Example
+## Important Point
+
+`sort()` does **not return** any value.
+
+It returns `None` and directly changes the original list.
 
 ```python
-numbers = [50, 10, 40, 20]
+numbers = [3, 1, 2]
+
+result = numbers.sort()
+
+print(result)
+print(numbers)
+```
+
+Output:
+
+```python
+None
+[1, 2, 3]
+```
+
+---
+
+## Sorting in Descending Order
+
+We can use `reverse=True` parameter to sort in descending order.
+
+```python
+numbers = [50, 10, 30, 20, 40]
 
 numbers.sort(reverse=True)
 
@@ -533,204 +534,406 @@ print(numbers)
 Output:
 
 ```python
-[50, 40, 20, 10]
+[50, 40, 30, 20, 10]
 ```
 
 ---
 
-# 1️⃣7️⃣ reverse()
-
-`reverse()` reverses the list order.
-
----
-
-## 📘 Example
+## Sorting Strings in Descending Order
 
 ```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
+fruits = ["Mango", "Apple", "Banana"]
 
-students.reverse()
+fruits.sort(reverse=True)
 
-print(students)
+print(fruits)
 ```
 
 Output:
 
 ```python
-['Ayesha', 'Sara', 'Zoha Khan']
+['Mango', 'Banana', 'Apple']
 ```
 
 ---
 
-# 1️⃣8️⃣ insert()
+# 3. reverse()
 
-`insert()` adds a value at a specific index position.
-
----
-
-## 📙 Syntax
+`reverse()` reverses the order of elements in the list.
 
 ```python
-list.insert(index, value)
-```
+numbers = [10, 20, 30, 40, 50]
 
----
+numbers.reverse()
 
-## 📗 Example
-
-```python
-students = ["Zoha Khan", "Sara"]
-
-students.insert(1, "Ayesha")
-
-print(students)
+print(numbers)
 ```
 
 Output:
 
 ```python
-['Zoha Khan', 'Ayesha', 'Sara']
+[50, 40, 30, 20, 10]
 ```
 
 ---
 
-# 1️⃣9️⃣ remove()
+## Important Point
 
-`remove()` deletes a specific value from the list.
+`reverse()` does **not return** any value.
+
+It returns `None` and directly changes the original list.
 
 ---
 
-## 📘 Example
+# 4. insert()
+
+`insert()` adds an element at a specific index.
+
+Syntax:
 
 ```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
+list.insert(index, element)
+```
 
-students.remove("Sara")
+Example:
 
-print(students)
+```python
+fruits = ["Apple", "Banana"]
+
+fruits.insert(1, "Mango")
+
+print(fruits)
 ```
 
 Output:
 
 ```python
-['Zoha Khan', 'Ayesha']
+['Apple', 'Mango', 'Banana']
 ```
 
 ---
 
-## 📙 Important Point
+# 5. remove()
 
-`remove()` removes only one value at a time.
-
-It removes the first matching value.
-
----
-
-# 2️⃣0️⃣ pop()
-
-`pop()` removes a value using index position.
-
----
-
-## 📘 Example with Index
+`remove()` removes the first occurrence of an element.
 
 ```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
+fruits = ["Apple", "Mango", "Banana", "Mango"]
 
-students.pop(1)
+fruits.remove("Mango")
 
-print(students)
+print(fruits)
 ```
 
 Output:
 
 ```python
-['Zoha Khan', 'Ayesha']
+['Apple', 'Banana', 'Mango']
 ```
 
 ---
 
-## 📙 Explanation
+## Important Point
 
-Python removed the value present at:
-
-```python
-index 1
-```
-
-which was:
-
-```python
-Sara
-```
+Only the **first occurrence** is removed.
 
 ---
 
-# 📘 pop() Without Index
+# 6. pop()
 
-If we do not provide any index inside `pop()`:
+`pop()` removes an element at a specific index.
 
-```python
-list.pop()
-```
-
-then Python automatically removes the:
-
-```text
-Last value
-```
-
-from the list.
-
----
-
-## 📙 Example
+Syntax:
 
 ```python
-students = ["Zoha Khan", "Sara", "Ayesha"]
+list.pop(index)
+```
 
-students.pop()
+Example:
 
-print(students)
+```python
+fruits = ["Apple", "Mango", "Banana"]
+
+fruits.pop(1)
+
+print(fruits)
 ```
 
 Output:
 
 ```python
-['Zoha Khan', 'Sara']
+['Apple', 'Banana']
 ```
 
 ---
 
-## 📗 Explanation
+## If Index is Not Provided
 
-Since no index was provided,
-
-Python automatically removed:
+`pop()` removes the last element by default.
 
 ```python
-Ayesha
+fruits = ["Apple", "Mango", "Banana"]
+
+fruits.pop()
+
+print(fruits)
 ```
 
-because it was the last value.
+Output:
+
+```python
+['Apple', 'Mango']
+```
 
 ---
 
-# 2️⃣1️⃣ Difference Between remove() and pop()
+# 📘 Tuples in Python
 
-| remove() | pop() |
-|---|---|
-| Removes value by name | Removes value by index |
-| Uses actual value | Uses position number |
-| Removes first matching value | Removes value from specific index |
-| Needs value inside brackets | Index is optional |
+A **Tuple** is similar to a list, but it is **immutable**.
+
+**Immutable** means we **cannot change** the values after the tuple is created.
 
 ---
 
-# 📘 Final List 
+# Creating Tuples
 
-| Index | 0 | 1 | 2 |
-|---|---|---|---|
-| Value | Zoha Khan | Sara | Ayesha |
+Tuples are written using parentheses `()`.
+
+```python
+fruits = ("Apple", "Mango", "Banana")
+
+print(fruits)
+```
+
+Output:
+
+```python
+('Apple', 'Mango', 'Banana')
+```
+
+---
+
+# Tuple Data Type
+
+The data type of a tuple is `tuple`.
+
+```python
+fruits = ("Apple", "Mango", "Banana")
+
+print(type(fruits))
+```
+
+Output:
+
+```python
+<class 'tuple'>
+```
+
+---
+
+# Accessing Tuple Values
+
+We can access tuple elements using indexing, just like lists.
+
+```python
+fruits = ("Apple", "Mango", "Banana")
+
+print(fruits[0])
+print(fruits[2])
+```
+
+Output:
+
+```python
+Apple
+Banana
+```
+
+---
+
+# Tuples are Immutable
+
+We **cannot update** tuple elements.
+
+```python
+fruits = ("Apple", "Mango", "Banana")
+
+fruits[0] = "Orange"
+```
+
+Output:
+
+```python
+TypeError: 'tuple' object does not support item assignment
+```
+
+---
+
+## Important Point
+
+Tuples are immutable, but lists are mutable.
+
+Use tuples when you want to store data that should **not change**.
+
+---
+
+# Creating an Empty Tuple
+
+```python
+empty_tuple = ()
+
+print(empty_tuple)
+print(type(empty_tuple))
+```
+
+Output:
+
+```python
+()
+<class 'tuple'>
+```
+
+---
+
+# Creating a Tuple with Single Value
+
+When creating a tuple with only one value, we **must add a comma** at the end.
+
+```python
+single_tuple = (5,)
+
+print(single_tuple)
+print(type(single_tuple))
+```
+
+Output:
+
+```python
+(5,)
+<class 'tuple'>
+```
+
+---
+
+## Without Comma - Not a Tuple
+
+If we don't add a comma, Python treats it as a regular value, not a tuple.
+
+```python
+not_a_tuple = (5)
+
+print(not_a_tuple)
+print(type(not_a_tuple))
+```
+
+Output:
+
+```python
+5
+<class 'int'>
+```
+
+---
+
+## Multiple Values - Comma is Optional
+
+For tuples with multiple values, the comma at the end is optional.
+
+```python
+fruits = ("Apple", "Mango", "Banana",)
+
+print(fruits)
+print(type(fruits))
+```
+
+Output:
+
+```python
+('Apple', 'Mango', 'Banana')
+<class 'tuple'>
+```
+
+---
+
+# 📗 Tuple Methods
+
+Tuples have fewer methods than lists because they are immutable.
+
+---
+
+# 1. index()
+
+`index()` returns the index of the first occurrence of an element.
+
+Syntax:
+
+```python
+tuple.index(element)
+```
+
+Example:
+
+```python
+fruits = ("Apple", "Mango", "Banana", "Mango")
+
+print(fruits.index("Mango"))
+```
+
+Output:
+
+```python
+1
+```
+
+---
+
+# 2. count()
+
+`count()` counts the total number of occurrences of an element.
+
+Syntax:
+
+```python
+tuple.count(element)
+```
+
+Example:
+
+```python
+fruits = ("Apple", "Mango", "Banana", "Mango")
+
+print(fruits.count("Mango"))
+```
+
+Output:
+
+```python
+2
+```
+
+---
+
+# 📕 Summary Table
+
+| Category | Topics |
+|-----------|---------|
+| Lists | Creating Lists, Accessing Elements, Updating Elements, Slicing |
+| List Methods | append(), sort(), reverse(), insert(), remove(), pop() |
+| List Properties | Mutable, Can store different data types |
+| Tuples | Creating Tuples, Accessing Elements, Immutability |
+| Tuple Methods | index(), count() |
+| Key Difference | Lists are mutable, Tuples are immutable |
+
+---
+
+# 📗 Key Differences: List vs Tuple
+
+| Feature | List | Tuple |
+|---------|------|-------|
+| Syntax | Square brackets `[]` | Parentheses `()` |
+| Mutability | Mutable (can change) | Immutable (cannot change) |
+| Methods | Many methods available | Only 2 methods: index(), count() |
+| Use Case | When data needs to change | When data should remain constant |
+| Performance | Slower | Faster |
 
 ---

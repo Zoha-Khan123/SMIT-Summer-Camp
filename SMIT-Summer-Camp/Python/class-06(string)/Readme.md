@@ -677,3 +677,12 @@ Output:
 | String Functions | len(), endswith(), capitalize(), replace(), find(), count() |
 
 ---
+
+
+
+
+
+
+
+
+
