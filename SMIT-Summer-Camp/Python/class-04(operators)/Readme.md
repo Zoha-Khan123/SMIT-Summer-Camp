@@ -70,6 +70,7 @@ Arithmetic Operators are used to perform mathematical calculations.
 | - | Subtraction | 10 - 5 |
 | * | Multiplication | 10 * 5 |
 | / | Division | 10 / 5 |
+| // | Floor Division | 10 // 3 |
 | % | Modulus (Remainder) | 10 % 3 |
 | ** | Exponent (Power) | 2 ** 3 |
 
@@ -148,6 +149,42 @@ Output:
 ```python
 5.0
 ```
+
+---
+
+## Floor Division (//)
+
+Used to divide values and return only the whole number (integer part).
+
+```python
+a = 10
+b = 3
+
+print(a // b)
+```
+
+Output:
+
+```python
+3
+```
+
+Explanation:
+
+```text
+10 ÷ 3 = 3.333...
+Floor division removes the decimal part and returns only 3
+```
+
+---
+
+## Difference Between / and //
+
+| Division (/) | Floor Division (//) |
+|--------------|---------------------|
+| Returns decimal | Returns whole number |
+| 10 / 3 = 3.333... | 10 // 3 = 3 |
+| 7 / 2 = 3.5 | 7 // 2 = 3 |
 
 ---
 

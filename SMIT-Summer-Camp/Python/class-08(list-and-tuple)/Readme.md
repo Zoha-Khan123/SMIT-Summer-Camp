@@ -687,7 +687,210 @@ Output:
 
 ---
 
-# 📘 Tuples in Python
+# 7. extend()
+
+`extend()` adds multiple elements from another list to the end.
+
+```python
+fruits = ["Apple", "Mango"]
+more_fruits = ["Banana", "Orange"]
+
+fruits.extend(more_fruits)
+
+print(fruits)
+```
+
+Output:
+
+```python
+['Apple', 'Mango', 'Banana', 'Orange']
+```
+
+---
+
+## Difference Between append() and extend()
+
+| append() | extend() |
+|----------|----------|
+| Adds one element | Adds multiple elements |
+| fruits.append("Banana") | fruits.extend(["Banana", "Orange"]) |
+| Result: ['Apple', 'Banana'] | Result: ['Apple', 'Banana', 'Orange'] |
+
+Example showing the difference:
+
+```python
+fruits = ["Apple"]
+
+# Using append with a list
+fruits.append(["Mango", "Banana"])
+print(fruits)
+```
+
+Output:
+
+```python
+['Apple', ['Mango', 'Banana']]
+```
+
+```python
+fruits = ["Apple"]
+
+# Using extend with a list
+fruits.extend(["Mango", "Banana"])
+print(fruits)
+```
+
+Output:
+
+```python
+['Apple', 'Mango', 'Banana']
+```
+
+---
+
+# 8. clear()
+
+`clear()` removes all elements from the list.
+
+```python
+fruits = ["Apple", "Mango", "Banana"]
+
+fruits.clear()
+
+print(fruits)
+```
+
+Output:
+
+```python
+[]
+```
+
+---
+
+# 9. copy()
+
+`copy()` creates a copy of the list.
+
+```python
+fruits = ["Apple", "Mango", "Banana"]
+
+new_fruits = fruits.copy()
+
+print(new_fruits)
+```
+
+Output:
+
+```python
+['Apple', 'Mango', 'Banana']
+```
+
+---
+
+## Why Use copy()?
+
+When we create a copy, changes to the new list do not affect the original list.
+
+```python
+fruits = ["Apple", "Mango"]
+
+new_fruits = fruits.copy()
+new_fruits.append("Banana")
+
+print("Original:", fruits)
+print("Copy:", new_fruits)
+```
+
+Output:
+
+```python
+Original: ['Apple', 'Mango']
+Copy: ['Apple', 'Mango', 'Banana']
+```
+
+---
+
+## Without copy() - Both Lists Change
+
+```python
+fruits = ["Apple", "Mango"]
+
+new_fruits = fruits
+new_fruits.append("Banana")
+
+print("Original:", fruits)
+print("Copy:", new_fruits)
+```
+
+Output:
+
+```python
+Original: ['Apple', 'Mango', 'Banana']
+Copy: ['Apple', 'Mango', 'Banana']
+```
+
+Explanation:
+
+```text
+Without copy(), both variables point to the same list.
+```
+
+---
+
+# 10. index()
+
+`index()` returns the index of the first occurrence of an element.
+
+```python
+fruits = ["Apple", "Mango", "Banana", "Mango"]
+
+print(fruits.index("Mango"))
+```
+
+Output:
+
+```python
+1
+```
+
+---
+
+## If Element is Not Found
+
+`index()` raises an error if the element is not found.
+
+```python
+fruits = ["Apple", "Mango", "Banana"]
+
+print(fruits.index("Orange"))
+```
+
+Output:
+
+```python
+ValueError: 'Orange' is not in list
+```
+
+---
+
+# 📌 Summary: Methods That Return None vs Values
+
+| Returns None (Modifies Original List) | Returns Value |
+|----------------------------------------|---------------|
+| append() | pop() returns removed element |
+| extend() | index() returns position |
+| sort() | count() returns occurrences |
+| reverse() | copy() returns new list |
+| insert() | |
+| remove() | |
+| clear() | |
+
+**Important:** Methods that return `None` directly modify the original list.
+
+---
+
+#  Tuples in Python
 
 A **Tuple** is similar to a list, but it is **immutable**.
 
@@ -918,7 +1121,7 @@ Output:
 | Category | Topics |
 |-----------|---------|
 | Lists | Creating Lists, Accessing Elements, Updating Elements, Slicing |
-| List Methods | append(), sort(), reverse(), insert(), remove(), pop() |
+| List Methods | append(), extend(), sort(), reverse(), insert(), remove(), pop(), clear(), copy(), index() |
 | List Properties | Mutable, Can store different data types |
 | Tuples | Creating Tuples, Accessing Elements, Immutability |
 | Tuple Methods | index(), count() |

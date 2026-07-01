@@ -1,4 +1,4 @@
-# 📘 Lecture 05: Strings in Python
+# 📘 Lecture 06: Strings in Python
 
 Welcome to the Python Summer Camp Class 06!
 
@@ -281,7 +281,7 @@ name = "Python"
 
 | Character | P | y | t | h | o | n |
 |-----------|---|---|---|---|---|---|
-| Index | 0 | 1 | 2 | 3 | 4 | 5 | 6
+| Index | 0 | 1 | 2 | 3 | 4 | 5 |
 
 ---
 
