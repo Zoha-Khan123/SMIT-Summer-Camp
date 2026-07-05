@@ -1,0 +1,49 @@
+Set in python
+
+.set collection hota ha unorder items ka
+set ka ander haar element unique hoga or set immutable hota ha 
+
+.set ka ander hum kon kon se data types store kar saktay han wo batana ha 
+bool , int , float , str , tuple()
+
+
+. set ka syntax batana ha
+
+.set ko hum dictionary ke tarah he banatay han lakin set ma sirf values store hote han keys nahi
+
+.set ka ander agar hum duplicate values daltay han to set usay ignore kar data ha ya bhe batana ha 
+
+.set ke type bhe check karne ha with type() function
+.set ke length bhe hum print kar saktay han with len() function
+
+. empty set bhe create kar ka dikhana ha or uske pehlay type print kar ka dikhai to wo dict aige agar hamay empty set create karna hoto uska liya hum set() ya synatx likhna parta ha phir hum type check karngay to set aiga
+
+. methods batanay say pehlay ya baat batana ha ka set mutable ha lakin set ka elemnets immutable ha in dono ma difference achay say clear karna ha elements immutable ha is liya dict or list ko hum nahi likh saktay set ma 
+
+
+
+. Set Methods
+
+. set.add() adds an element
+
+aik empty set banana ha pehlay or phir us ma add() method say integer string ko add kar dana ha or list ko add kar ka dikhana ha error ka q add nahi ho raha or error kya a raha ha unhasbale error aiga usay explaiiiiin karna ha ka hashable ma kya hoga agar hum 1 or 1 store kartay han to uske hash value same hoge lakin agar hum koi do list ko hash kartay han or aik ka ander koi dosra element add kar dan to uske hash value change hojaige is liya immutable ma hum sirf hasbable values ko store kartay han
+
+. set.remove() removes the element
+ agar hum set say asa element remove kartay han jo ha he nahi to error aiga
+
+. set.clear()  empties the set
+
+
+. set.pop()    removes a random value
+
+
+.set.union(set2)   combines both set values and return new 
+
+jab hum do sets ka union niklatay han to wo hamaray set ko change nahi karta balkay new set ma updation karta ha
+
+diagram bana ka dikha dana union ka liya circle ma jasay school ma baachay banatay han 
+
+
+. set.intersection(set2)  combines common values and return new
+
+is ma bhe diagram bana ka dikhana ha 
