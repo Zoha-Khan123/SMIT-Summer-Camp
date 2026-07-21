@@ -250,48 +250,6 @@ Controls the overall game flow.
 
 ---
 
-# 🏆 Challenge: Improve the Game
-
-Try adding these features:
-
-## Level 1: Easy
-1. **Count total games played**
-   ```python
-   total_games = 0
-   ```
-
-2. **Show best score** (minimum attempts)
-   ```python
-   best_score = float('inf')
-   ```
-
-## Level 2: Medium
-3. **Add difficulty levels**
-   - Easy: 1-50
-   - Medium: 1-100
-   - Hard: 1-500
-
-4. **Limit maximum attempts**
-   - Give only 7 tries
-   - Game over if attempts exceed limit
-
-5. **Better hints**
-   - "Very close!" if within 5
-   - "Getting warm!" if within 10
-   - "Cold!" if far away
-
----
-
-# 📊 Class Activity (1 Hour Plan)
-
-**0-10 mins:** Review random module from Class 12  
-**10-20 mins:** Explain game logic and flow  
-**20-40 mins:** Code the game step by step together  
-**40-50 mins:** Run and test the game  
-**50-60 mins:** Students try the challenges  
-
----
-
 # 🎯 Learning Outcomes
 
 After this lecture, students can:
