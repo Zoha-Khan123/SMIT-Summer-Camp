@@ -424,14 +424,31 @@ Output (random order):
 
 ## ⚠️ Problem with Global Installation
 
-### What's Wrong with Direct Installation?
+### The Old Way: Using pip Directly
 
-If we install packages directly on our computer (globally), problems can happen:
+Before learning the better way, let's understand how packages were traditionally installed.
+
+**Old Method:**
+
+```bash
+pip install pygame
+pip install flask
+pip install numpy
+```
+
+This installs packages **globally** on your entire computer.
+
+---
+
+### What's Wrong with `pip install` (Global Installation)?
+
+When we use `pip install package_name` directly, problems can happen:
 
 ❌ **Version Conflicts** - Different projects need different versions  
-❌ **System Pollution** - Too many packages everywhere  
-❌ **Hard to Share** - Others don't know what you used  
+❌ **System Pollution** - Too many packages installed everywhere  
+❌ **Hard to Share** - Others don't know what packages you used  
 ❌ **Difficult to Manage** - Can't remove packages for one project only  
+❌ **Permission Issues** - Sometimes requires admin rights  
 
 ### Example Problem:
 
@@ -439,8 +456,23 @@ If we install packages directly on our computer (globally), problems can happen:
 Project A needs: pygame version 2.0
 Project B needs: pygame version 2.5
 
-If you install globally, one project will break!
+If you install globally with pip:
+→ Both projects use the same version
+→ One project will break! ❌
 ```
+
+---
+
+### Real-World Scenario:
+
+```
+Student A: "My code works on my computer!"
+Student B: "Same code doesn't work on mine!"
+
+Why? Different pygame versions installed globally!
+```
+
+**Solution?** Use project-specific installation with uv! ✅
 
 ---
 
@@ -534,16 +566,16 @@ First, create a folder for your project.
 
 ```bash
 # Create folder
-mkdir colorful_project
+mkdir pygame_project
 
 # Enter the folder
-cd colorful_project
+cd pygame_project
 ```
 
 ### Or Using File Explorer:
 
 1. Right-click → New Folder
-2. Name it: `colorful_project`
+2. Name it: `pygame_project`
 3. Open Command Prompt/PowerShell in this folder
    - (Shift + Right-click → "Open PowerShell window here")
 
@@ -562,7 +594,7 @@ uv init
 ### What Happens:
 
 ```
-Initialized project `colorful_project`
+Initialized project `pygame_project`
 ```
 
 **Congratulations!** Your project is now initialized! 🎉
@@ -570,7 +602,7 @@ Initialized project `colorful_project`
 Let's see what files were created:
 
 ```
-colorful_project/
+pygame_project/
 │
 ├── .python-version      # Python version file
 ├── pyproject.toml       # Project configuration
@@ -595,9 +627,9 @@ This file contains:
 
 ```toml
 [project]
-name = "colorful-project"
+name = "pygame-project"
 version = "0.1.0"
-description = "My colorful Python project"
+description = "My first game project"
 requires-python = ">=3.12"
 dependencies = []
 ```
@@ -627,7 +659,7 @@ A simple starter file created by uv:
 
 ```python
 def main():
-    print("Hello from colorful-project!")
+    print("Hello from pygame-project!")
 
 if __name__ == "__main__":
     main()
@@ -695,9 +727,9 @@ Now open `pyproject.toml` and you'll see something NEW:
 
 ```toml
 [project]
-name = "colorful-project"
+name = "pygame-project"
 version = "0.1.0"
-description = "My colorful Python project"
+description = "My first game project"
 requires-python = ">=3.12"
 dependencies = [
     "pygame>=2.6.1",
@@ -963,7 +995,7 @@ When your friend downloads your project, they just need to:
 ### 2. Go to project folder:
 
 ```bash
-cd colorful_project
+cd pygame_project
 ```
 
 ### 3. Install all dependencies:
@@ -974,14 +1006,14 @@ uv sync
 
 This command:
 - ✅ Reads `pyproject.toml`
-- ✅ Installs all listed packages (colorama, etc.)
+- ✅ Installs all listed packages (pygame, etc.)
 - ✅ Creates virtual environment
 - ✅ **Done!** Everything works! 🎉
 
 ### 4. Run the code:
 
 ```bash
-uv run colored_text.py
+uv run my_first_window.py
 ```
 
 **That's it! Super easy to share and collaborate!**
@@ -1034,10 +1066,10 @@ uv add matplotlib
 | Command | Purpose | Example |
 |---------|---------|---------|
 | `uv init` | Initialize new project | Creates pyproject.toml |
-| `uv add package` | Install a package | `uv add colorama` |
-| `uv remove package` | Remove a package | `uv remove colorama` |
+| `uv add package` | Install a package | `uv add pygame` |
+| `uv remove package` | Remove a package | `uv remove pygame` |
 | `uv sync` | Install all dependencies | Reads pyproject.toml |
-| `uv run script.py` | Run Python script | `uv run welcome.py` |
+| `uv run script.py` | Run Python script | `uv run my_first_window.py` |
 | `uv pip list` | List installed packages | Shows all packages |
 
 ---
@@ -1062,48 +1094,30 @@ uv add matplotlib
    → powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 2. Create project folder
-   → mkdir my_project
-   → cd my_project
+   → mkdir pygame_project
+   → cd pygame_project
 
 3. Initialize project
    → uv init
 
 4. Install third-party module
-   → uv add colorama
+   → uv add pygame
    
 5. Check pyproject.toml
-   → See colorama listed in dependencies
+   → See pygame listed in dependencies
 
 6. Write your code
    → Create .py file
-   → import colorama
+   → import pygame
    → Use it!
 
 7. Run your code
-   → uv run my_script.py
+   → uv run my_first_window.py
 
 8. Share project
    → Share .py files and pyproject.toml
    → Others run: uv sync
 ```
-
----
-
-## ✅ Why This Way is Better?
-
-### For Students:
-
-✅ Learn professional practices from day 1  
-✅ Projects don't interfere with each other  
-✅ Easy to share projects with friends  
-✅ Matches how real companies work  
-
-### For Teachers:
-
-✅ Easy to share assignments  
-✅ Students have consistent environments  
-✅ Less "it works on my computer" problems  
-✅ Prepares students for real development  
 
 ---
 
