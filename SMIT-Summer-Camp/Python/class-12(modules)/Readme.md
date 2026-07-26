@@ -407,58 +407,6 @@ Output (random order):
 
 ---
 
-# 🐢 Built-in Module: turtle
-
-The `turtle` module is used for creating graphics and drawings.
-
-## Importing turtle Module
-
-```python
-import turtle
-```
-
-## Basic turtle Example
-
-```python
-import turtle
-
-# Create a turtle
-my_turtle = turtle.Turtle()
-
-# Draw a square
-my_turtle.forward(100)
-my_turtle.right(90)
-my_turtle.forward(100)
-my_turtle.right(90)
-my_turtle.forward(100)
-my_turtle.right(90)
-my_turtle.forward(100)
-
-# Keep window open
-turtle.mainloop()
-```
-
-**This will draw a square on screen!**
-
----
-
-## Common turtle Functions
-
-| Function | Description |
-|----------|-------------|
-| `forward(distance)` | Move forward |
-| `backward(distance)` | Move backward |
-| `right(angle)` | Turn right |
-| `left(angle)` | Turn left |
-| `color(color_name)` | Change color |
-| `shape(shape_name)` | Change shape |
-| `penup()` | Stop drawing |
-| `pendown()` | Start drawing |
-
-**We will use turtle in detail in Class 14!**
-
----
-
 # 2️⃣ Third-Party Modules
 
 ## What are Third-Party Modules?
@@ -468,63 +416,602 @@ turtle.mainloop()
 ### Key Points:
 
 ⚠️ **Not included with Python** - Need to install  
-⚠️ **Use pip to install** - Python's package installer  
 ✅ **Powerful features** - Advanced functionality  
 ✅ **Community-created** - Made by developers worldwide  
+✅ **Project-specific** - Each project has its own dependencies  
 
 ---
 
-## How to Install Third-Party Modules?
+## ⚠️ Problem with Global Installation
 
-We use **pip** (Python's package installer) to install third-party modules.
+### What's Wrong with Direct Installation?
 
-### Syntax:
+If we install packages directly on our computer (globally), problems can happen:
 
-```bash
-pip install module_name
+❌ **Version Conflicts** - Different projects need different versions  
+❌ **System Pollution** - Too many packages everywhere  
+❌ **Hard to Share** - Others don't know what you used  
+❌ **Difficult to Manage** - Can't remove packages for one project only  
+
+### Example Problem:
+
+```
+Project A needs: pygame version 2.0
+Project B needs: pygame version 2.5
+
+If you install globally, one project will break!
 ```
 
 ---
 
-## Examples of Third-Party Modules
+## ✅ Solution: uv (Modern Package Manager)
 
-### 1. pygame - Game Development
+**uv** is a modern, fast Python package manager that creates **isolated environments** for each project.
 
-```bash
-pip install pygame
-```
+### Benefits of uv:
 
-Used for creating games with graphics and sound.
-
----
-
-### 2. flask - Web Development
-
-```bash
-pip install flask
-```
-
-Used for creating websites and web applications.
+✅ **Fast** - 10-100x faster than other tools  
+✅ **Isolated** - Each project has its own packages  
+✅ **Automatic** - Creates virtual environment automatically  
+✅ **Organized** - Tracks all dependencies in one file  
+✅ **Professional** - Used by developers in real companies  
 
 ---
 
-### 3. numpy - Scientific Computing
+## 🔧 Installing uv (One-Time Setup)
 
-```bash
-pip install numpy
+First, we need to install **uv** on our computer. **We only do this once!**
+
+### For Windows (Recommended):
+
+Open **PowerShell** and run this command:
+
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Used for numerical calculations and data analysis.
+**What this does:** Downloads and runs the official uv installer from Astral.sh
+
+**Don't worry about the long command!** 
+- This is the official method used by professional developers
+- You only need to run it once
+- It's safe and comes from the official source
 
 ---
 
-### 4. pandas - Data Analysis
+### For Mac/Linux:
+
+Open **Terminal** and run:
 
 ```bash
-pip install pandas
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Used for working with data tables and analysis.
+---
+
+### Verify Installation:
+
+After installation, verify that uv is working:
+
+```bash
+uv --version
+```
+
+You should see something like:
+```
+uv 0.4.18
+```
+
+**✅ Perfect! uv is now installed on your computer!**
+
+---
+
+## 📁 Complete Project Setup Workflow
+
+Now let's learn the **proper way** to create a Python project and install third-party modules!
+
+### Workflow Overview:
+
+```
+Step 1: Create Project Folder
+Step 2: Initialize Project with uv
+Step 3: Understand Generated Files
+Step 4: Install Third-Party Module
+Step 5: Write Code Using the Module
+Step 6: Run Your Code
+Step 7: Share Your Project
+```
+
+Let's do each step in detail!
+
+---
+
+## 📂 Step 1: Create Project Folder
+
+First, create a folder for your project.
+
+### Using Command Line:
+
+```bash
+# Create folder
+mkdir colorful_project
+
+# Enter the folder
+cd colorful_project
+```
+
+### Or Using File Explorer:
+
+1. Right-click → New Folder
+2. Name it: `colorful_project`
+3. Open Command Prompt/PowerShell in this folder
+   - (Shift + Right-click → "Open PowerShell window here")
+
+---
+
+## 🚀 Step 2: Initialize Project with uv
+
+Now we'll initialize our project. This creates all necessary files automatically.
+
+### Command:
+
+```bash
+uv init
+```
+
+### What Happens:
+
+```
+Initialized project `colorful_project`
+```
+
+**Congratulations!** Your project is now initialized! 🎉
+
+Let's see what files were created:
+
+```
+colorful_project/
+│
+├── .python-version      # Python version file
+├── pyproject.toml       # Project configuration
+├── README.md            # Project description
+└── hello.py             # Sample code
+```
+
+---
+
+## 📄 Step 3: Understanding Generated Files
+
+When we run `uv init`, several important files are created. Let's understand each one:
+
+### 1. `pyproject.toml` - Project Configuration File ⭐ Most Important!
+
+This file contains:
+- Project name and version
+- Python version required
+- **List of all third-party modules** we install
+
+**Example `pyproject.toml`:**
+
+```toml
+[project]
+name = "colorful-project"
+version = "0.1.0"
+description = "My colorful Python project"
+requires-python = ">=3.12"
+dependencies = []
+```
+
+Right now, `dependencies = []` is **empty**. 
+
+When we install modules, they will appear here automatically! 📝
+
+---
+
+### 2. `.python-version` - Python Version File
+
+Contains the Python version for this project.
+
+**Example:**
+```
+3.12
+```
+
+This ensures everyone uses the same Python version.
+
+---
+
+### 3. `hello.py` - Sample Python File
+
+A simple starter file created by uv:
+
+```python
+def main():
+    print("Hello from colorful-project!")
+
+if __name__ == "__main__":
+    main()
+```
+
+You can delete this or modify it for your own project.
+
+---
+
+### 4. `.venv` folder (Created When Installing Packages)
+
+When you install your first package, uv creates a **virtual environment** folder:
+- Contains all installed packages
+- Isolated from other projects
+- Each project has its own `.venv`
+
+---
+
+## 🎮 Step 4: Installing Third-Party Module
+
+Now let's install our first third-party module!
+
+We'll use **pygame** - a powerful module for creating games and graphics.
+
+### What is pygame?
+
+**pygame** is a popular Python library used for:
+- 🎮 Creating games
+- 🎨 Drawing graphics (shapes, images)
+- 🎵 Playing sounds and music
+- 🖱️ Handling keyboard and mouse input
+- 📺 Creating animations
+
+**Why pygame?** Because in our next class, we'll create a **Snake Game** using pygame!
+
+---
+
+### Command:
+
+```bash
+uv add pygame
+```
+
+### What Happens:
+
+```
+Resolved 1 package in 200ms
+Downloaded 1 package in 1.5s
+Installed 1 package in 150ms
+ + pygame==2.6.1
+```
+
+**Magic! ✨** What just happened?
+
+1. ✅ uv downloaded `pygame`
+2. ✅ Created `.venv` virtual environment (if not exists)
+3. ✅ Installed pygame in the virtual environment
+4. ✅ **Updated `pyproject.toml`** automatically
+
+---
+
+## 📝 Step 5: Check pyproject.toml
+
+Now open `pyproject.toml` and you'll see something NEW:
+
+```toml
+[project]
+name = "colorful-project"
+version = "0.1.0"
+description = "My colorful Python project"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.6.1",
+]
+```
+
+**See? `pygame` is now listed!** 🎯
+
+This means:
+- ✅ Anyone can see what packages your project needs
+- ✅ Easy to install all packages in one command
+- ✅ Version is tracked automatically
+- ✅ Professional way to manage dependencies
+
+---
+
+## 💻 Step 6: Write Code Using pygame
+
+Now let's actually use the pygame module we just installed!
+
+### Example 1: Create a Simple Window
+
+Create a new file `my_first_window.py`:
+
+```python
+import pygame
+
+# Initialize pygame
+pygame.init()
+
+# Create a window (width=600, height=400)
+screen = pygame.display.set_mode((600, 400))
+pygame.display.set_caption("My First Pygame Window!")
+
+# Fill the screen with a color (RGB: Red, Green, Blue)
+screen.fill((135, 206, 235))  # Sky blue color
+
+# Update the display
+pygame.display.flip()
+
+# Keep window open for 5 seconds
+pygame.time.wait(5000)
+
+# Quit pygame
+pygame.quit()
+```
+
+---
+
+## ▶️ Step 7: Run Your Code
+
+Now let's run our pygame program!
+
+### Command:
+
+```bash
+uv run my_first_window.py
+```
+
+### What You'll See:
+
+A **blue window** will appear for 5 seconds! 🎨
+
+**🎉 Congratulations! You just created your first pygame window!**
+
+---
+
+## 🎨 Example 2: Drawing Shapes
+
+Let's draw some colorful shapes!
+
+### Create `draw_shapes.py`:
+
+```python
+import pygame
+
+# Initialize pygame
+pygame.init()
+
+# Create window
+screen = pygame.display.set_mode((600, 400))
+pygame.display.set_caption("Drawing Shapes with Pygame!")
+
+# Fill background with white
+screen.fill((255, 255, 255))
+
+# Draw shapes
+# pygame.draw.circle(surface, color, center, radius)
+pygame.draw.circle(screen, (255, 0, 0), (150, 100), 50)  # Red circle
+
+# pygame.draw.rect(surface, color, (x, y, width, height))
+pygame.draw.rect(screen, (0, 255, 0), (250, 50, 100, 100))  # Green square
+
+# pygame.draw.circle for another circle
+pygame.draw.circle(screen, (0, 0, 255), (450, 100), 50)  # Blue circle
+
+# Draw a line
+# pygame.draw.line(surface, color, start_point, end_point, width)
+pygame.draw.line(screen, (255, 165, 0), (50, 300), (550, 300), 5)  # Orange line
+
+# Update display
+pygame.display.flip()
+
+# Keep window open for 8 seconds
+pygame.time.wait(8000)
+
+# Quit
+pygame.quit()
+```
+
+### Run it:
+
+```bash
+uv run draw_shapes.py
+```
+
+### What You'll See:
+
+- 🔴 A red circle
+- 🟢 A green square
+- 🔵 A blue circle
+- 🟠 An orange line
+
+**Wow! We just created graphics with pygame!** 🎨
+
+---
+
+## 🎯 Example 3: Interactive Window (Keep It Open)
+
+Let's create a window that stays open until we close it!
+
+### Create `interactive_window.py`:
+
+```python
+import pygame
+
+# Initialize pygame
+pygame.init()
+
+# Create window
+screen = pygame.display.set_mode((600, 400))
+pygame.display.set_caption("Click X to Close!")
+
+# Colors (RGB values)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+
+# Fill background
+screen.fill(WHITE)
+
+# Draw a smiley face
+pygame.draw.circle(screen, (255, 255, 0), (300, 200), 100)  # Yellow face
+pygame.draw.circle(screen, (0, 0, 0), (270, 180), 10)  # Left eye
+pygame.draw.circle(screen, (0, 0, 0), (330, 180), 10)  # Right eye
+pygame.draw.arc(screen, (0, 0, 0), (250, 200, 100, 50), 3.14, 6.28, 3)  # Smile
+
+# Update display
+pygame.display.flip()
+
+# Keep window open until user closes it
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:  # User clicked X button
+            running = False
+
+# Quit pygame
+pygame.quit()
+```
+
+### Run it:
+
+```bash
+uv run interactive_window.py
+```
+
+### What You'll See:
+
+A **smiley face** window that stays open until you click the X button! 😊
+
+---
+
+## 🎮 Understanding pygame Basics
+
+### Important pygame Functions:
+
+| Function | Purpose |
+|----------|---------|
+| `pygame.init()` | Initialize pygame (always call first!) |
+| `pygame.display.set_mode((w, h))` | Create a window with width and height |
+| `pygame.display.set_caption("title")` | Set window title |
+| `screen.fill(color)` | Fill screen with a color |
+| `pygame.draw.circle()` | Draw a circle |
+| `pygame.draw.rect()` | Draw a rectangle |
+| `pygame.draw.line()` | Draw a line |
+| `pygame.display.flip()` | Update the display |
+| `pygame.quit()` | Close pygame |
+
+---
+
+## 🎨 Understanding Colors in pygame
+
+Colors in pygame use **RGB** (Red, Green, Blue) values from 0 to 255.
+
+### Common Colors:
+
+```python
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+YELLOW = (255, 255, 0)
+ORANGE = (255, 165, 0)
+SKY_BLUE = (135, 206, 235)
+```
+
+**Format:** `(Red, Green, Blue)`
+
+---
+
+## 🚀 What's Next with pygame?
+
+Now that you know pygame basics, in the **next class** we will:
+
+✅ Handle keyboard input (arrow keys)  
+✅ Create moving objects  
+✅ Detect collisions  
+✅ Build a complete **Snake Game**! 🐍
+
+**You're ready for game development!** 🎮
+
+---
+
+## 🤝 Step 8: Sharing Your Project
+
+When you want to share your project with a friend or teacher:
+
+### What to Share:
+
+✅ Your Python files (`.py` files)  
+✅ `pyproject.toml` - Contains list of packages needed  
+✅ `.python-version` - Python version  
+✅ `README.md` - Project description  
+
+### What NOT to Share:
+
+❌ `.venv` folder - Too large and auto-generated  
+❌ `__pycache__` folders - Cache files  
+
+**Just share the code and `pyproject.toml`!**
+
+---
+
+## 👥 For Someone Using Your Project:
+
+When your friend downloads your project, they just need to:
+
+### 1. Make sure they have uv installed
+
+### 2. Go to project folder:
+
+```bash
+cd colorful_project
+```
+
+### 3. Install all dependencies:
+
+```bash
+uv sync
+```
+
+This command:
+- ✅ Reads `pyproject.toml`
+- ✅ Installs all listed packages (colorama, etc.)
+- ✅ Creates virtual environment
+- ✅ **Done!** Everything works! 🎉
+
+### 4. Run the code:
+
+```bash
+uv run colored_text.py
+```
+
+**That's it! Super easy to share and collaborate!**
+
+---
+
+## 🎓 Installing More Third-Party Modules
+
+Now that you know the process, you can install any third-party module!
+
+### Examples:
+
+```bash
+# For game development
+uv add pygame
+
+# For web development
+uv add flask
+
+# For data science
+uv add numpy
+
+# For working with Excel files
+uv add openpyxl
+
+# For creating charts
+uv add matplotlib
+```
+
+**After each installation, check `pyproject.toml` - you'll see it updated!**
 
 ---
 
@@ -532,12 +1019,91 @@ Used for working with data tables and analysis.
 
 | Module | Purpose | Install Command |
 |--------|---------|-----------------|
-| `pygame` | Game development | `pip install pygame` |
-| `flask` | Web development | `pip install flask` |
-| `numpy` | Scientific computing | `pip install numpy` |
-| `pandas` | Data analysis | `pip install pandas` |
-| `requests` | HTTP requests | `pip install requests` |
-| `pillow` | Image processing | `pip install pillow` |
+| `colorama` | Colored terminal text | `uv add colorama` |
+| `pygame` | Game development | `uv add pygame` |
+| `flask` | Web development | `uv add flask` |
+| `numpy` | Scientific computing | `uv add numpy` |
+| `pandas` | Data analysis | `uv add pandas` |
+| `pillow` | Image processing | `uv add pillow` |
+| `requests` | HTTP requests | `uv add requests` |
+
+---
+
+## 🔄 Quick Reference: uv Commands
+
+| Command | Purpose | Example |
+|---------|---------|---------|
+| `uv init` | Initialize new project | Creates pyproject.toml |
+| `uv add package` | Install a package | `uv add colorama` |
+| `uv remove package` | Remove a package | `uv remove colorama` |
+| `uv sync` | Install all dependencies | Reads pyproject.toml |
+| `uv run script.py` | Run Python script | `uv run welcome.py` |
+| `uv pip list` | List installed packages | Shows all packages |
+
+---
+
+## 📊 Comparison: Old Way vs Professional Way
+
+| Feature | Old Way | Professional Way (uv) |
+|---------|---------|----------------------|
+| **Installation** | Global install | Project-specific |
+| **Tracking** | Manual | Automatic in pyproject.toml |
+| **Sharing** | Difficult | Easy (share pyproject.toml) |
+| **Speed** | Slow | 10-100x faster ⚡ |
+| **Isolation** | No isolation | Each project isolated ✅ |
+| **Version Control** | Manual management | Automatic |
+
+---
+
+## 🎯 Complete Workflow Summary
+
+```
+1. Install uv (one-time setup)
+   → powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+2. Create project folder
+   → mkdir my_project
+   → cd my_project
+
+3. Initialize project
+   → uv init
+
+4. Install third-party module
+   → uv add colorama
+   
+5. Check pyproject.toml
+   → See colorama listed in dependencies
+
+6. Write your code
+   → Create .py file
+   → import colorama
+   → Use it!
+
+7. Run your code
+   → uv run my_script.py
+
+8. Share project
+   → Share .py files and pyproject.toml
+   → Others run: uv sync
+```
+
+---
+
+## ✅ Why This Way is Better?
+
+### For Students:
+
+✅ Learn professional practices from day 1  
+✅ Projects don't interfere with each other  
+✅ Easy to share projects with friends  
+✅ Matches how real companies work  
+
+### For Teachers:
+
+✅ Easy to share assignments  
+✅ Students have consistent environments  
+✅ Less "it works on my computer" problems  
+✅ Prepares students for real development  
 
 ---
 
@@ -545,10 +1111,11 @@ Used for working with data tables and analysis.
 
 | Feature | Built-in Modules | Third-Party Modules |
 |---------|------------------|---------------------|
-| **Installation** | No installation needed | Need `pip install` |
+| **Installation** | No installation needed | Need `uv add` |
 | **Availability** | Always available | Must install first |
 | **Source** | Python team | Other developers |
-| **Examples** | math, random, turtle | pygame, flask, numpy |
+| **Tracking** | Not needed | Listed in pyproject.toml |
+| **Examples** | math, random, turtle | colorama, pygame, flask |
 
 ---
 
@@ -771,7 +1338,6 @@ print("Rectangle area:", geometry.rectangle_area(10, 5))
 ✅ How to import modules (4 different ways)  
 ✅ `math` module and its functions  
 ✅ `random` module and its functions  
-✅ `turtle` module basics  
 ✅ How to install third-party modules  
 ✅ How to create our own user-defined modules  
 
@@ -792,12 +1358,6 @@ Create a module `student.py` with functions:
 - `display_result(name, average, grade)` - Display student result
 
 Then import and use it in another file!
-
-## Exercise 3: Explore Turtle
-Use the `turtle` module to:
-- Draw a triangle
-- Draw a circle
-- Draw your name initials
 
 ---
 
