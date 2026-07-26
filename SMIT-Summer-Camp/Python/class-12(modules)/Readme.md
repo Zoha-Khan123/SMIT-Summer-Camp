@@ -607,7 +607,7 @@ pygame_project/
 ├── .python-version      # Python version file
 ├── pyproject.toml       # Project configuration
 ├── README.md            # Project description
-└── hello.py             # Sample code
+└── main.py              # Sample code
 ```
 
 ---
@@ -653,7 +653,7 @@ This ensures everyone uses the same Python version.
 
 ---
 
-### 3. `hello.py` - Sample Python File
+### 3. `main.py` - Sample Python File
 
 A simple starter file created by uv:
 
